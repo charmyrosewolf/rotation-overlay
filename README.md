@@ -6,6 +6,8 @@ sliders. Rotations are plain JSON files under `rotations/`, read at runtime, so 
 updates the open window without a rebuild. Electron + electron-vite + React, styled with CSS
 Modules and one `tokens.css`.
 
+![The overlay over Wuthering Waves, showing the Augusta · Iuno team's rotation](assets/screenshot.webp)
+
 ## Dev
 
 ```bash
