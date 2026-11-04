@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "noEmit": true,
+    "tsBuildInfoFile": "./out/.tsbuildinfo/node.tsbuildinfo",
+    "target": "ES2023",
+    "lib": ["ES2023"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "types": ["node"],
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "isolatedModules": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "src/main/**/*",
+    "src/preload/**/*",
+    "src/shared/**/*",
+    "src/renderer/src/data/shipped.test.ts",
+    "src/renderer/src/data/loadRotations.ts",
+    "src/renderer/src/data/schema.ts",
+    "src/renderer/src/test/provided.d.ts",
+    "electron.vite.config.ts",
+    "vitest.config.ts",
+    "vitest.global-setup.ts"
+  ]
+}

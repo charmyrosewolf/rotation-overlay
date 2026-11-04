@@ -1,5 +1,4 @@
 .local/
-legacy/
 node_modules/
 out/
 dist/

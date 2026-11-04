@@ -1,0 +1,6 @@
+.error {
+  padding: 6px 8px; border: 1px solid var(--heavy); border-radius: 6px;
+  background: var(--app-panel); font-size: 12px;
+}
+.file { color: var(--heavy); }
+.message { margin-top: 2px; color: var(--dim); overflow-wrap: anywhere; }

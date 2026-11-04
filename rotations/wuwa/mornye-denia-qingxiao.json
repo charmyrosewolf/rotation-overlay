@@ -1,0 +1,184 @@
+{
+  "label": "🍃 Hazard F3–4",
+  "order": 4,
+  "variants": [
+    {
+      "id": "standard",
+      "label": "Standard",
+      "units": [
+        {
+          "icon": "🛡️",
+          "name": "Mornye",
+          "summary": "tap ×3, heavy, tap ×3, ult, skill",
+          "steps": [
+            [
+              { "type": "basic", "label": "B1-2-3", "key": "LMB×3" },
+              { "type": "heavy", "label": "Heavy", "key": "hold LMB" }
+            ],
+            [
+              { "type": "basic", "label": "B1-2-3", "key": "LMB×3" },
+              { "note": "cancel" },
+              { "type": "lib", "label": "Lib", "key": "R" }
+            ],
+            [
+              { "type": "skill", "label": "Skill", "key": "E" },
+              { "note": "cancel" },
+              { "type": "heavy", "label": "Heavy", "key": "hold LMB" },
+              { "type": "heavy", "label": "Heavy", "key": "hold LMB" }
+            ],
+            [
+              { "type": "echo", "label": "Echo", "key": "Q" },
+              { "type": "io", "label": "Outro", "key": "2" }
+            ]
+          ]
+        },
+        {
+          "icon": "🫧",
+          "name": "Denia",
+          "summary": "B4, skill, ult · dodge · skill ×2, ult",
+          "steps": [
+            [
+              { "type": "io", "label": "Intro", "key": "auto" },
+              { "type": "basic", "label": "B4", "key": "LMB" },
+              { "type": "skill", "label": "Skill", "key": "E" },
+              { "type": "lib", "label": "Lib", "key": "R" }
+            ],
+            [
+              { "type": "basic", "label": "B1-2", "key": "LMB×2" },
+              { "type": "move", "label": "Dodge" },
+              { "type": "basic", "label": "B1-2", "key": "LMB×2" }
+            ],
+            [
+              { "type": "skill", "label": "Skill", "key": "E" },
+              { "type": "skill", "label": "Skill", "key": "E" },
+              { "type": "lib", "label": "Lib", "key": "R" }
+            ],
+            [
+              { "type": "echo", "label": "Echo", "key": "Q" },
+              { "type": "io", "label": "Outro", "key": "3" }
+            ]
+          ]
+        },
+        {
+          "icon": "🍃",
+          "name": "Qingxiao",
+          "summary": "air 1-2-3, ground 1-2, tune, forte",
+          "steps": [
+            [
+              { "type": "io", "label": "Intro", "key": "auto" },
+              { "type": "basic", "label": "air B1-2-3", "key": "LMB×3" },
+              { "type": "basic", "label": "ground B1-2", "key": "LMB×2" }
+            ],
+            [
+              { "type": "heavy", "label": "Tune Break" },
+              { "type": "heavy", "label": "Forte Skill" },
+              { "type": "heavy", "label": "Heavy", "key": "hold LMB" }
+            ],
+            [
+              { "type": "basic", "label": "B1-2-3-4", "key": "LMB×4" },
+              { "type": "heavy", "label": "Heavy", "key": "hold LMB" }
+            ],
+            [
+              { "type": "lib", "label": "Lib", "key": "R" },
+              { "type": "echo", "label": "Echo", "key": "Q" },
+              { "type": "io", "label": "Outro", "key": "1" }
+            ]
+          ]
+        }
+      ],
+      "tips": [
+        "**Swap in by Intro**: each one refreshes +15% team DMG (20s)",
+        "**don't camp** one unit 20s",
+        "Qingxiao **never casts Skill**"
+      ]
+    },
+    {
+      "id": "qingxiao-practice",
+      "label": "Qingxiao practice",
+      "units": [
+        {
+          "icon": "🛡️",
+          "name": "Mornye",
+          "summary": "tap to full Forte, fly, skill",
+          "steps": [
+            [
+              { "type": "basic", "label": "B1-2-3", "key": "LMB×3" },
+              { "note": "till Forte full" },
+              { "type": "heavy", "label": "hold → fly", "key": "hold LMB" }
+            ],
+            [
+              { "type": "skill", "label": "Skill", "key": "E" },
+              { "note": "while flying" }
+            ],
+            [
+              { "type": "heavy", "label": "hold till Forte full", "key": "hold LMB" },
+              { "note": "keep holding, auto-casts" }
+            ],
+            [
+              { "type": "lib", "label": "Lib", "key": "R" },
+              { "type": "echo", "label": "Echo", "key": "Q" },
+              { "type": "io", "label": "Outro", "key": "2" }
+            ]
+          ]
+        },
+        {
+          "icon": "🫧",
+          "name": "Denia",
+          "summary": "B1 skill, ult, combo ×2, ult",
+          "steps": [
+            [
+              { "type": "io", "label": "Intro", "key": "auto" },
+              { "type": "basic", "label": "B1", "key": "LMB" },
+              { "type": "skill", "label": "Skill", "key": "E" }
+            ],
+            [
+              { "type": "lib", "label": "Lib 1", "key": "R" }
+            ],
+            [
+              { "type": "basic", "label": "B1-2-3", "key": "LMB×3" },
+              { "type": "skill", "label": "Skill", "key": "E" },
+              { "note": "×2, either order" }
+            ],
+            [
+              { "type": "lib", "label": "Lib 2", "key": "R" },
+              { "note": "only lights up if done right" }
+            ],
+            [
+              { "type": "echo", "label": "Echo", "key": "Q" },
+              { "type": "io", "label": "Outro", "key": "3" }
+            ]
+          ]
+        },
+        {
+          "icon": "🍃",
+          "name": "Qingxiao",
+          "summary": "hold, hold, hold, ult",
+          "steps": [
+            [
+              { "type": "io", "label": "Intro", "key": "auto" },
+              { "type": "basic", "label": "hold attack", "key": "hold LMB" },
+              { "note": "till Skill lights up the 2nd time" }
+            ],
+            [
+              { "type": "skill", "label": "Skill", "key": "E" },
+              { "note": "Forte fills, Heavy auto-casts" }
+            ],
+            [
+              { "type": "heavy", "label": "keep holding", "key": "hold LMB" },
+              { "note": "Forte full again → Heavy" }
+            ],
+            [
+              { "type": "lib", "label": "Lib", "key": "R" },
+              { "type": "echo", "label": "Echo", "key": "Q" },
+              { "type": "io", "label": "Outro", "key": "1" }
+            ]
+          ],
+          "note": "repeat from Mornye"
+        }
+      ],
+      "tips": [
+        "**Denia's 2nd Lib** is your check: no glow = the combo slipped"
+      ]
+    }
+  ]
+}

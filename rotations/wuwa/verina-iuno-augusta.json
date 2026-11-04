@@ -1,0 +1,99 @@
+{
+  "label": "⚡ Augusta · Iuno",
+  "order": 5,
+  "variants": [
+    {
+      "id": "standard",
+      "label": "Standard",
+      "units": [
+        {
+          "icon": "🌿",
+          "name": "Verina",
+          "summary": "tap ×5, skill, ult, air till Concerto",
+          "steps": [
+            [
+              { "type": "basic", "label": "B1-2-3-4-5", "key": "LMB×5" },
+              { "note": "1st Forte charge" },
+              { "type": "skill", "label": "Skill", "key": "E" },
+              { "note": "2nd" }
+            ],
+            [
+              { "type": "lib", "label": "Lib", "key": "R" }
+            ],
+            [
+              { "type": "move", "label": "Jump" },
+              { "type": "basic", "label": "air attack", "key": "LMB" },
+              { "note": "till Concerto full" }
+            ],
+            [
+              { "type": "echo", "label": "Echo (Fallacy)", "key": "Q" },
+              { "type": "io", "label": "Outro", "key": "2" }
+            ]
+          ]
+        },
+        {
+          "icon": "🌙",
+          "name": "Iuno",
+          "summary": "skill ×2, teleport, fly skill, ult",
+          "steps": [
+            [
+              { "type": "io", "label": "Intro", "key": "auto" },
+              { "type": "skill", "label": "Skill", "key": "E" },
+              { "type": "skill", "label": "Improved Skill", "key": "E" }
+            ],
+            [
+              { "type": "move", "label": "Jump" },
+              { "note": "teleport" },
+              { "type": "skill", "label": "Flying Skill", "key": "E" }
+            ],
+            [
+              { "type": "lib", "label": "Lib", "key": "R" },
+              { "type": "basic", "label": "air B1-2-3", "key": "LMB×3" },
+              { "type": "skill", "label": "Skill", "key": "E" }
+            ],
+            [
+              { "type": "heavy", "label": "hold attack", "key": "hold LMB" },
+              { "type": "echo", "label": "Echo", "key": "Q" },
+              { "type": "io", "label": "Outro", "key": "3" }
+            ]
+          ]
+        },
+        {
+          "icon": "⚡",
+          "name": "Augusta",
+          "summary": "heavy, ult, heavy, dive ×3",
+          "steps": [
+            [
+              { "type": "io", "label": "Intro", "key": "auto" },
+              { "type": "heavy", "label": "Heavy", "key": "hold LMB" },
+              { "type": "lib", "label": "Lib", "key": "R" }
+            ],
+            [
+              { "type": "basic", "label": "B1", "key": "LMB" },
+              { "type": "skill", "label": "Skill", "key": "E" },
+              { "note": "or attack till Forte full" },
+              { "type": "heavy", "label": "Heavy", "key": "hold LMB" }
+            ],
+            [
+              { "type": "skill", "label": "Enhanced Skill ×3", "key": "E" },
+              { "note": "gryphon dive" }
+            ],
+            [
+              { "type": "lib", "label": "hold Lib", "key": "hold R" },
+              { "note": "at the dive's tail" },
+              { "type": "basic", "label": "spam attack", "key": "LMB spam" }
+            ],
+            [
+              { "type": "echo", "label": "Echo ×2", "key": "Q" },
+              { "type": "io", "label": "Outro", "key": "1" }
+            ]
+          ]
+        }
+      ],
+      "tips": [
+        "**Verina's Echo is Fallacy**",
+        "**start holding Lib** before the last dive lands"
+      ]
+    }
+  ]
+}

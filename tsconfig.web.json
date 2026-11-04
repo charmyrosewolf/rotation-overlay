@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "noEmit": true,
+    "tsBuildInfoFile": "./out/.tsbuildinfo/web.tsbuildinfo",
+    "target": "ES2023",
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "types": ["vite/client"],
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "isolatedModules": true,
+    "skipLibCheck": true
+  },
+  "include": ["src/renderer/src/**/*", "src/shared/**/*", "src/preload/api.ts", "vitest.setup.ts"],
+  "exclude": ["src/renderer/src/data/shipped.test.ts"]
+}

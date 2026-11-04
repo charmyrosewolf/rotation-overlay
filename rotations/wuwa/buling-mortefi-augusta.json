@@ -1,0 +1,87 @@
+{
+  "label": "⚡ Hazard F1–2",
+  "order": 3,
+  "variants": [
+    {
+      "id": "standard",
+      "label": "Standard",
+      "units": [
+        {
+          "icon": "🐉",
+          "name": "Buling",
+          "summary": "tap ×4, skill, heavy, ult",
+          "steps": [
+            [
+              { "type": "basic", "label": "B1-2-3-4", "key": "LMB×4" },
+              { "note": "cancel 4th" },
+              { "type": "skill", "label": "Skill", "key": "E" }
+            ],
+            [
+              { "type": "basic", "label": "B4", "key": "LMB" },
+              { "note": "hold at once" },
+              { "type": "heavy", "label": "Heavy hold", "key": "hold LMB" }
+            ],
+            [
+              { "type": "lib", "label": "Lib", "key": "R" },
+              { "note": "cancels 2nd Forte" },
+              { "type": "echo", "label": "Echo", "key": "Q" },
+              { "type": "lib", "label": "Lib", "key": "R" },
+              { "type": "io", "label": "Outro", "key": "2" }
+            ]
+          ]
+        },
+        {
+          "icon": "🔥",
+          "name": "Mortefi",
+          "summary": "skill ×2, tap ×4, skill, ult",
+          "steps": [
+            [
+              { "type": "io", "label": "Intro", "key": "auto" },
+              { "type": "skill", "label": "Skill", "key": "E" },
+              { "type": "heavy", "label": "Forte Skill", "key": "E" }
+            ],
+            [
+              { "type": "basic", "label": "B1-2-3-4", "key": "LMB×4" },
+              { "type": "heavy", "label": "Forte Skill", "key": "E" }
+            ],
+            [
+              { "type": "lib", "label": "Lib", "key": "R" },
+              { "type": "echo", "label": "Echo", "key": "Q" },
+              { "type": "io", "label": "Outro", "key": "3" },
+              { "note": "straight into Augusta" }
+            ]
+          ]
+        },
+        {
+          "icon": "⚡",
+          "name": "Augusta",
+          "summary": "heavy-skill-heavy, oath, sunborne ×9",
+          "steps": [
+            [
+              { "type": "io", "label": "Intro", "key": "auto" },
+              { "type": "heavy", "label": "Heavy", "key": "hold LMB" },
+              { "type": "skill", "label": "Skill", "key": "E" },
+              { "type": "heavy", "label": "Heavy", "key": "hold LMB" }
+            ],
+            [
+              { "type": "lib", "label": "Lib Oath", "key": "R" },
+              { "type": "skill", "label": "Skill 1-2-3" }
+            ],
+            [
+              { "type": "lib", "label": "Sunborne ×9" },
+              { "type": "lib", "label": "Protector" }
+            ],
+            [
+              { "type": "echo", "label": "Echo", "key": "Q" },
+              { "type": "io", "label": "Outro", "key": "1" }
+            ]
+          ]
+        }
+      ],
+      "tips": [
+        "**Watch Augusta's Crit DMG** after Buling's first stint (floor buff via Electro Flare?)",
+        "**one Echo** if Augusta's Energy is at 125%"
+      ]
+    }
+  ]
+}

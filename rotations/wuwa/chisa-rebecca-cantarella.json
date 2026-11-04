@@ -1,0 +1,117 @@
+{
+  "label": "🌀 Left · Cantarella",
+  "order": 1,
+  "variants": [
+    {
+      "id": "standard",
+      "label": "Standard",
+      "units": [
+        {
+          "icon": "🩸",
+          "name": "Chisa — opener",
+          "summary": "cut, ult, snip, forte",
+          "steps": [
+            [
+              { "type": "skill", "label": "Skill", "key": "E" },
+              { "type": "basic", "label": "Lunge", "key": "LMB" },
+              { "note": "cancel" },
+              { "type": "echo", "label": "Echo", "key": "Q" }
+            ],
+            [
+              { "type": "lib", "label": "Lib", "key": "R" }
+            ],
+            [
+              { "type": "basic", "label": "B2", "key": "LMB" },
+              { "type": "basic", "label": "B3 Lunge", "key": "LMB" },
+              { "type": "basic", "label": "B4 Snip", "key": "LMB" }
+            ],
+            [
+              { "type": "heavy", "label": "Forte Skill", "key": "E" },
+              { "type": "basic", "label": "hold B 1-2-3", "key": "hold LMB" },
+              { "type": "io", "label": "Outro", "key": "2" }
+            ]
+          ]
+        },
+        {
+          "icon": "🔫",
+          "name": "Rebecca",
+          "summary": "echo, tap ×3, skill, tap ×2, heavy, ult",
+          "steps": [
+            [
+              { "type": "io", "label": "Intro", "key": "auto" },
+              { "type": "echo", "label": "Echo", "key": "Q" }
+            ],
+            [
+              { "type": "basic", "label": "B1-2-3", "key": "LMB×3" },
+              { "type": "skill", "label": "Skill", "key": "E" }
+            ],
+            [
+              { "type": "basic", "label": "B1-2", "key": "LMB×2" },
+              { "note": "keep holding" },
+              { "type": "heavy", "label": "Heavy", "key": "hold LMB" },
+              { "note": "press + release" }
+            ],
+            [
+              { "type": "lib", "label": "Lib", "key": "R" },
+              { "type": "io", "label": "Outro", "key": "3" }
+            ]
+          ]
+        },
+        {
+          "icon": "🌀",
+          "name": "Cantarella",
+          "summary": "skill sandwich",
+          "steps": [
+            [
+              { "type": "io", "label": "Intro", "key": "auto" },
+              { "type": "basic", "label": "B3", "key": "LMB" },
+              { "note": "quick, skips 1-2" },
+              { "type": "skill", "label": "Skill", "key": "E" }
+            ],
+            [
+              { "type": "lib", "label": "Lib", "key": "R" },
+              { "type": "heavy", "label": "Heavy Forte", "key": "hold LMB" }
+            ],
+            [
+              { "type": "skill", "label": "Skill", "key": "E" },
+              { "type": "basic", "label": "B1-2-3", "key": "LMB×3" },
+              { "type": "skill", "label": "Skill", "key": "E" },
+              { "type": "basic", "label": "B4-5", "key": "LMB×2" }
+            ],
+            [
+              { "type": "echo", "label": "Echo", "key": "Q" },
+              { "type": "io", "label": "Outro", "key": "1" }
+            ]
+          ]
+        },
+        {
+          "icon": "🔁",
+          "name": "Chisa — loop",
+          "summary": "2-3-4, echo, ult, spam",
+          "steps": [
+            [
+              { "type": "io", "label": "Intro", "key": "auto" },
+              { "type": "basic", "label": "B2", "key": "LMB" },
+              { "type": "basic", "label": "B3 Lunge", "key": "LMB" },
+              { "type": "basic", "label": "B4 Snip", "key": "LMB" }
+            ],
+            [
+              { "type": "echo", "label": "Echo", "key": "Q" },
+              { "type": "lib", "label": "Lib", "key": "R" }
+            ],
+            [
+              { "type": "basic", "label": "spam B 1-2-3", "key": "LMB spam" },
+              { "type": "io", "label": "Outro", "key": "2" }
+            ]
+          ],
+          "note": "then Rebecca → Cantarella, same as above"
+        }
+      ],
+      "tips": [
+        "**Everyone Echoes** every stint (floor stacks)",
+        "**Chisa Echo early** (ATK buff)",
+        "**Rebecca can't move firing**: wait for the Dragon to land"
+      ]
+    }
+  ]
+}

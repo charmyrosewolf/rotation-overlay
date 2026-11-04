@@ -1,0 +1,91 @@
+{
+  "label": "❄️ Right · Carlotta",
+  "order": 2,
+  "variants": [
+    {
+      "id": "standard",
+      "label": "Standard",
+      "units": [
+        {
+          "icon": "❄️",
+          "name": "Carlotta — opener",
+          "summary": "skill skill, out",
+          "steps": [
+            [
+              { "type": "skill", "label": "Skill", "key": "E" },
+              { "type": "skill", "label": "Skill", "key": "E" },
+              { "type": "io", "label": "Swap", "key": "2" },
+              { "note": "no Intro = no floor buff, keep it short" }
+            ]
+          ]
+        },
+        {
+          "icon": "🌿",
+          "name": "Verina",
+          "summary": "tap ×3, skill, ult, echo, hop",
+          "steps": [
+            [
+              { "type": "basic", "label": "B1-2-3", "key": "LMB×3" },
+              { "type": "skill", "label": "Skill", "key": "E" }
+            ],
+            [
+              { "type": "lib", "label": "Lib", "key": "R" },
+              { "type": "echo", "label": "Echo", "key": "Q" }
+            ],
+            [
+              { "type": "move", "label": "Jump" },
+              { "type": "basic", "label": "B1-2-3", "key": "LMB×3" },
+              { "type": "io", "label": "Outro", "key": "3" }
+            ]
+          ]
+        },
+        {
+          "icon": "🎨",
+          "name": "Lynae",
+          "summary": "ult, skill, forte, triple hop",
+          "steps": [
+            [
+              { "type": "io", "label": "Intro", "key": "auto" },
+              { "type": "lib", "label": "Lib", "key": "R" },
+              { "type": "skill", "label": "Skill", "key": "E" }
+            ],
+            [
+              { "type": "heavy", "label": "Heavy Forte", "key": "hold LMB" },
+              { "type": "move", "label": "Jump ×3" }
+            ],
+            [
+              { "type": "heavy", "label": "Visual Impact" },
+              { "type": "echo", "label": "Echo", "key": "Q" },
+              { "type": "io", "label": "Outro", "key": "1" }
+            ]
+          ]
+        },
+        {
+          "icon": "❄️",
+          "name": "Carlotta — payoff",
+          "summary": "wait 4s, then the chain",
+          "steps": [
+            [
+              { "type": "io", "label": "Intro", "key": "auto" },
+              { "type": "skill", "label": "Skill", "key": "E" },
+              { "type": "skill", "label": "Skill", "key": "E" },
+              { "type": "heavy", "label": "Heavy", "key": "hold LMB" }
+            ],
+            [
+              { "type": "lib", "label": "Lib", "key": "R" },
+              { "type": "lib", "label": "Lib 1-2-3-4" },
+              { "type": "lib", "label": "Lib 5" }
+            ],
+            [
+              { "type": "io", "label": "Outro", "key": "2" }
+            ]
+          ]
+        }
+      ],
+      "tips": [
+        "**Carlotta in by Intro**, past 4s before the Lib chain (4 stacks = +40% Skill DMG)",
+        "**never swap her mid-chain**: the buff drops"
+      ]
+    }
+  ]
+}
