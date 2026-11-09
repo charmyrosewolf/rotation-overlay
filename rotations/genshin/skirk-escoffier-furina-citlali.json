@@ -1,0 +1,85 @@
+{
+  "label": "❄️ Skirk · Hydro/Cryo",
+  "order": 2,
+  "variants": [
+    {
+      "id": "standard",
+      "label": "Standard",
+      "units": [
+        {
+          "icon": "💧",
+          "name": "Furina",
+          "summary": "E, Q",
+          "steps": [
+            [
+              { "type": "move", "label": "Swap", "key": "3" },
+              { "type": "skill", "label": "Skill", "key": "E" },
+              { "type": "lib", "label": "Burst", "key": "Q" }
+            ]
+          ]
+        },
+        {
+          "icon": "🦅",
+          "name": "Citlali",
+          "summary": "E shield before Skirk's Q",
+          "steps": [
+            [
+              { "type": "move", "label": "Swap", "key": "4" },
+              { "type": "skill", "label": "Skill", "key": "E" },
+              { "note": "shield up for Calamity of Eshu" }
+            ]
+          ]
+        },
+        {
+          "icon": "🍳",
+          "name": "Escoffier",
+          "summary": "E, Q",
+          "steps": [
+            [
+              { "type": "move", "label": "Swap", "key": "2" },
+              { "type": "skill", "label": "Skill", "key": "E" },
+              { "type": "lib", "label": "Burst", "key": "Q" }
+            ]
+          ]
+        },
+        {
+          "icon": "🗡️",
+          "name": "Skirk",
+          "summary": "tap E, Q, NAs till Serpent's Subtlety ends",
+          "steps": [
+            [
+              { "type": "move", "label": "Swap", "key": "1" },
+              { "type": "skill", "label": "tap Skill", "key": "E" },
+              { "type": "lib", "label": "Burst", "key": "Q" }
+            ],
+            [
+              { "type": "basic", "label": "Normal Attacks", "key": "LMB spam" },
+              { "note": "till Serpent's Subtlety runs out" }
+            ]
+          ]
+        },
+        {
+          "icon": "🔁",
+          "name": "Loop",
+          "summary": "Furina E, Escoffier E, Skirk E (+Q)",
+          "steps": [
+            [
+              { "type": "skill", "label": "Furina E", "key": "3 → E" },
+              { "type": "skill", "label": "Escoffier E", "key": "2 → E" },
+              { "type": "skill", "label": "Skirk E", "key": "1 → E" }
+            ],
+            [
+              { "type": "lib", "label": "Skirk Burst", "key": "Q" },
+              { "note": "when it's back" }
+            ]
+          ]
+        }
+      ],
+      "tips": [
+        "**Citlali Q on cooldown**",
+        "Furina Hydro + Cryo **Freezes** packs in place",
+        "Escoffier Q heals Furina's drain and corrosion"
+      ]
+    }
+  ]
+}

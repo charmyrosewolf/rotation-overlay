@@ -1,0 +1,84 @@
+{
+  "label": "🌀 Mizuki · Stellar Swirl",
+  "order": 1,
+  "variants": [
+    {
+      "id": "standard",
+      "label": "Standard",
+      "units": [
+        {
+          "icon": "🐱",
+          "name": "Diona",
+          "summary": "hold E shield",
+          "steps": [
+            [
+              { "type": "move", "label": "Swap", "key": "4" },
+              { "type": "skill", "label": "hold Skill", "key": "hold E" },
+              { "note": "shield + Cryo" }
+            ]
+          ]
+        },
+        {
+          "icon": "❄️",
+          "name": "Odette",
+          "summary": "E, Q",
+          "steps": [
+            [
+              { "type": "move", "label": "Swap", "key": "2" },
+              { "type": "skill", "label": "Skill", "key": "E" },
+              { "type": "lib", "label": "Burst", "key": "Q" }
+            ]
+          ]
+        },
+        {
+          "icon": "🌪️",
+          "name": "Sucrose",
+          "summary": "E, Q absorbs Cryo",
+          "steps": [
+            [
+              { "type": "move", "label": "Swap", "key": "3" },
+              { "type": "skill", "label": "Skill", "key": "E" },
+              { "type": "lib", "label": "Burst", "key": "Q" },
+              { "note": "Cryo's out, so it absorbs Cryo" }
+            ]
+          ]
+        },
+        {
+          "icon": "❄️",
+          "name": "Odette",
+          "summary": "Coda E",
+          "steps": [
+            [
+              { "type": "move", "label": "Swap", "key": "2" },
+              { "type": "skill", "label": "Skill (Coda)", "key": "E" }
+            ]
+          ]
+        },
+        {
+          "icon": "🌸",
+          "name": "Mizuki",
+          "summary": "Q, E, drift over the Cryo target",
+          "steps": [
+            [
+              { "type": "move", "label": "Swap", "key": "1" },
+              { "type": "lib", "label": "Burst", "key": "Q" },
+              { "type": "skill", "label": "Skill", "key": "E" }
+            ],
+            [
+              { "type": "move", "label": "Drift" },
+              { "note": "over the Cryo-aura'd target, stay on her" }
+            ],
+            [
+              { "note": "drift ends → repeat from Odette E" }
+            ]
+          ]
+        }
+      ],
+      "tips": [
+        "**stay on Mizuki**: swapping ends the drift",
+        "each swirl adds 2.5 s to the drift, **twice max**",
+        "**Radiant Cocoon** lands → Diona Q under the target, heal to full, burst it"
+      ]
+    }
+  ]
+}
