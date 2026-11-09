@@ -5,13 +5,11 @@ type Props = {
   items: { id: string; label: string }[]
   activeId: string
   onSelect(id: string): void
-  // the team tabs are the page's navigation; the variant tabs are only a row of buttons
-  as?: 'nav' | 'div'
 }
 
-export function Tabs({ items, activeId, onSelect, as: Root = 'div' }: Props) {
+export function Tabs({ items, activeId, onSelect }: Props) {
   return (
-    <Root className={styles.tabs}>
+    <div className={styles.tabs}>
       {items.map((item) => (
         <button
           key={item.id}
@@ -23,6 +21,6 @@ export function Tabs({ items, activeId, onSelect, as: Root = 'div' }: Props) {
           {item.label}
         </button>
       ))}
-    </Root>
+    </div>
   )
 }

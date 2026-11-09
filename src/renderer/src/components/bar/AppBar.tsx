@@ -3,12 +3,14 @@ import { cx } from '../../styles/cx'
 import styles from './AppBar.module.css'
 import { OpacitySlider } from './OpacitySlider'
 
-// title is a node so the collapsed label can be a <CollapsedBar>; a plain string works too
-type Props = { title: ReactNode; collapsed: boolean; onToggle(): void }
+// title is a node so the collapsed label can be a <CollapsedBar>; a plain string works too.
+// leading goes before the drag handle, and only while expanded.
+type Props = { title: ReactNode; collapsed: boolean; onToggle(): void; leading?: ReactNode }
 
-export function AppBar({ title, collapsed, onToggle }: Props) {
+export function AppBar({ title, collapsed, onToggle, leading }: Props) {
   return (
     <div className={cx(styles.bar, collapsed && styles.collapsed)}>
+      {!collapsed && leading}
       <span>⠿ drag</span>
       {/* hidden, not unmounted: the sliders' live state has to outlive a collapse */}
       <div className={styles.sliders} hidden={collapsed}>

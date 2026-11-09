@@ -9,10 +9,11 @@
         {
           "icon": "🐱",
           "name": "Diona",
+          "element": "cryo",
           "summary": "hold E shield",
           "steps": [
             [
-              { "type": "move", "label": "Swap", "key": "4" },
+              { "type": "swap", "label": "Swap", "key": "4" },
               { "type": "skill", "label": "hold Skill", "key": "hold E" },
               { "note": "shield + Cryo" }
             ]
@@ -21,24 +22,26 @@
         {
           "icon": "❄️",
           "name": "Odette",
+          "element": "cryo",
           "summary": "E, Q",
           "steps": [
             [
-              { "type": "move", "label": "Swap", "key": "2" },
-              { "type": "skill", "label": "Skill", "key": "E" },
-              { "type": "lib", "label": "Burst", "key": "Q" }
+              { "type": "swap", "label": "Swap", "key": "2" },
+              { "type": "skill", "label": "Skill" },
+              { "type": "burst", "label": "Burst" }
             ]
           ]
         },
         {
           "icon": "🌪️",
           "name": "Sucrose",
+          "element": "anemo",
           "summary": "E, Q absorbs Cryo",
           "steps": [
             [
-              { "type": "move", "label": "Swap", "key": "3" },
-              { "type": "skill", "label": "Skill", "key": "E" },
-              { "type": "lib", "label": "Burst", "key": "Q" },
+              { "type": "swap", "label": "Swap", "key": "3" },
+              { "type": "skill", "label": "Skill" },
+              { "type": "burst", "label": "Burst" },
               { "note": "Cryo's out, so it absorbs Cryo" }
             ]
           ]
@@ -46,23 +49,25 @@
         {
           "icon": "❄️",
           "name": "Odette",
+          "element": "cryo",
           "summary": "Coda E",
           "steps": [
             [
-              { "type": "move", "label": "Swap", "key": "2" },
-              { "type": "skill", "label": "Skill (Coda)", "key": "E" }
+              { "type": "swap", "label": "Swap", "key": "2" },
+              { "type": "skill", "label": "Skill (Coda)" }
             ]
           ]
         },
         {
           "icon": "🌸",
           "name": "Mizuki",
+          "element": "anemo",
           "summary": "Q, E, drift over the Cryo target",
           "steps": [
             [
-              { "type": "move", "label": "Swap", "key": "1" },
-              { "type": "lib", "label": "Burst", "key": "Q" },
-              { "type": "skill", "label": "Skill", "key": "E" }
+              { "type": "swap", "label": "Swap", "key": "1" },
+              { "type": "burst", "label": "Burst" },
+              { "type": "skill", "label": "Skill" }
             ],
             [
               { "type": "move", "label": "Drift" },

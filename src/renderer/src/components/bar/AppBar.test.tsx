@@ -77,6 +77,24 @@ describe('AppBar collapsed', () => {
   })
 })
 
+describe('AppBar leading slot', () => {
+  const back = <button type="button">Back</button>
+
+  it('renders before the drag handle when expanded', () => {
+    mount({ leading: back })
+    const lead = screen.getByRole('button', { name: 'Back' })
+    expect(lead.compareDocumentPosition(screen.getByText('⠿ drag'))).toBe(
+      Node.DOCUMENT_POSITION_FOLLOWING
+    )
+  })
+
+  it('is not in the document while collapsed', () => {
+    mount({ collapsed: true, leading: back })
+    // hidden: true, or a still-mounted hidden span would pass as absent
+    expect(screen.queryByRole('button', { name: 'Back', hidden: true })).not.toBeInTheDocument()
+  })
+})
+
 describe('AppBar controls', () => {
   it('the toggle button calls onToggle once per click', async () => {
     const { onToggle } = mount()

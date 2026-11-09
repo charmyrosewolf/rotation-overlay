@@ -1,8 +1,9 @@
 // @vitest-environment node
 import { describe, expect, it } from 'vitest'
 import type { RawFile } from '../../../preload/api'
-import { loadRotations, type Loaded } from './loadRotations'
-import { rotationFileSchema } from './schema'
+import { GAMES } from './games'
+import { groupByGame, loadRotations, type Loaded } from './loadRotations'
+import { rotationSchemaFor } from './schema'
 
 const chip = (type: string, label: string, key?: string) =>
   key ? { type, label, key } : { type, label }
@@ -26,6 +27,18 @@ const FIRST_ITEM = 'variants.0.units.0.steps.0.0'
 const raw = (file: string, body: unknown): RawFile => ({ file, text: JSON.stringify(body) })
 const ids = (r: Loaded) => r.ok.map((t) => t.id)
 
+// Genshin has its own chip set, so its fixtures carry their own chips.
+const gSteps = [[chip('normal', 'Normal')], [chip('skill', 'Skill')]]
+const gUnit = (over: object = {}) => unit({ icon: '❄', name: 'Skirk', steps: gSteps, ...over })
+const gRotation = (over: object = {}) =>
+  rotation({ variants: [variant('std', { units: [gUnit()] })], ...over })
+const gWithUnit = (over: object) =>
+  rotation({ variants: [variant('std', { units: [gUnit(over)] })] })
+const gWithSteps = (steps: unknown[]) => gWithUnit({ steps })
+const firstUnit = (r: Loaded) => r.ok[0]!.variants[0]!.units[0]!
+const keys = (r: Loaded) =>
+  firstUnit(r).steps.flat().map((item) => ('key' in item ? item.key : undefined))
+
 describe('loadRotations', () => {
   it('returns valid files as teams, ordered by order then filename', () => {
     const r = loadRotations([
@@ -46,9 +59,9 @@ describe('loadRotations', () => {
   it('sorts by game before order', () => {
     const r = loadRotations([
       raw('wuwa/x.json', rotation({ order: 1 })),
-      raw('hsr/y.json', rotation({ order: 9 }))
+      raw('genshin/y.json', gRotation({ order: 9 }))
     ])
-    expect(ids(r)).toEqual(['hsr/y', 'wuwa/x'])
+    expect(ids(r)).toEqual(['genshin/y', 'wuwa/x'])
   })
 
   it('puts files without order after numbered ones, ties on filename, order 0 first', () => {
@@ -68,7 +81,78 @@ describe('loadRotations', () => {
     expect(r.errors).toHaveLength(1)
     expect(r.errors[0]!.file).toBe('wuwa/bad.json')
     expect(r.errors[0]!.message).toMatch(/^variants\.0\.units\.0\.steps\.0\.0\.type: /)
+    expect(r.errors[0]!.message).toMatch(
+      /ult is not a wuwa chip \(allowed: basic, skill, echo, lib, heavy, io, move\)/
+    )
     expect(ids(r)).toEqual(['wuwa/good'])
+  })
+
+  it("rejects a chip from another game's set, naming the type and the allowed ones", () => {
+    const bad = gWithSteps([[chip('lib', 'Burst')]])
+    const r = loadRotations([raw('genshin/bad.json', bad), raw('genshin/good.json', gRotation())])
+    expect(r.errors).toHaveLength(1)
+    expect(r.errors[0]!.file).toBe('genshin/bad.json')
+    expect(r.errors[0]!.message).toMatch(
+      /lib is not a genshin chip \(allowed: normal, charged, plunge, skill, burst, swap, move\)/
+    )
+    expect(ids(r)).toEqual(['genshin/good'])
+  })
+
+  it('rejects an element on a WuWa unit', () => {
+    const r = loadRotations([
+      raw('wuwa/tinted.json', withUnit({ element: 'cryo' })),
+      raw('wuwa/good.json', rotation())
+    ])
+    expect(r.errors).toHaveLength(1)
+    expect(r.errors[0]!.file).toBe('wuwa/tinted.json')
+    expect(r.errors[0]!.message).toMatch(/^variants\.0\.units\.0\b.*element/)
+    expect(ids(r)).toEqual(['wuwa/good'])
+  })
+
+  it('rejects a file in a folder the registry does not know', () => {
+    const r = loadRotations([raw('hsr/x.json', rotation()), raw('wuwa/good.json', rotation())])
+    expect(r.errors).toEqual([
+      { file: 'hsr/x.json', message: 'unknown game folder hsr (known: genshin, wuwa)' }
+    ])
+    expect(ids(r)).toEqual(['wuwa/good'])
+  })
+
+  it('rejects a Genshin element outside the list, at its element path', () => {
+    const r = loadRotations([
+      raw('genshin/fire.json', gWithUnit({ element: 'fire' })),
+      raw('genshin/good.json', gRotation())
+    ])
+    expect(r.errors).toHaveLength(1)
+    expect(r.errors[0]!.file).toBe('genshin/fire.json')
+    expect(r.errors[0]!.message).toMatch(/^variants\.0\.units\.0\.element: /)
+    expect(ids(r)).toEqual(['genshin/good'])
+  })
+
+  it("keeps a Genshin unit's element", () => {
+    const r = loadRotations([raw('genshin/cryo.json', gWithUnit({ element: 'cryo' }))])
+    expect(r.errors).toEqual([])
+    expect(firstUnit(r).element).toBe('cryo')
+  })
+
+  it("fills a chip's default key, and keeps a key the chip gives", () => {
+    const steps = [
+      [chip('skill', 'Skill'), chip('burst', 'Burst'), chip('normal', 'Normal')],
+      [chip('skill', 'Skill', 'hold E')]
+    ]
+    const r = loadRotations([raw('genshin/keys.json', gWithSteps(steps))])
+    expect(r.errors).toEqual([])
+    expect(keys(r)).toEqual(['E', 'Q', 'LMB', 'hold E'])
+  })
+
+  // WuWa `skill` shares a name with Genshin's, which has a default; WuWa's has none.
+  it('leaves swap and move keyless', () => {
+    const genshin = gWithSteps([[chip('swap', 'Swap'), chip('move', 'Drift')]])
+    const wuwa = withSteps([[chip('skill', 'Skill')]])
+    const g = loadRotations([raw('genshin/keyless.json', genshin)])
+    const w = loadRotations([raw('wuwa/keyless.json', wuwa)])
+    expect([g.errors, w.errors]).toEqual([[], []])
+    expect(keys(g)).toEqual([undefined, undefined])
+    expect(keys(w)).toEqual([undefined])
   })
 
   it('joins deeper zod paths with dots', () => {
@@ -134,7 +218,8 @@ describe('loadRotations', () => {
     // wrong-typed label, then a chip type outside the list
     const bad = { ...withSteps([[chip('ult', 'U')]]), label: 5 }
     // precondition: the fixture really has more than one issue
-    expect(rotationFileSchema.safeParse(bad).error?.issues.length).toBeGreaterThan(1)
+    const schema = rotationSchemaFor('wuwa', GAMES['wuwa']!)
+    expect(schema.safeParse(bad).error?.issues.length).toBeGreaterThan(1)
     const r = loadRotations([raw('wuwa/many.json', bad), raw('wuwa/good.json', rotation())])
     expect(r.errors).toHaveLength(1)
     expect(r.errors[0]!.file).toBe('wuwa/many.json')
@@ -156,5 +241,52 @@ describe('loadRotations', () => {
     expect(r.errors[0]!.message.startsWith(prefix)).toBe(true)
     expect(r.errors[0]!.message).toContain('colour')
     expect(ids(r)).toEqual(['wuwa/good'])
+  })
+})
+
+describe('groupByGame', () => {
+  const name = (id: string) => GAMES[id]!.name
+  const loaded = loadRotations([
+    raw('wuwa/w.json', rotation()),
+    raw('loose.json', rotation()),
+    raw('genshin/g2.json', gRotation({ order: 2 })),
+    raw('wuwa/bad.json', withSteps([[chip('ult', 'U')]])),
+    raw('hsr/x.json', rotation()),
+    raw('genshin/g1.json', gRotation({ order: 1 })),
+    raw('genshin/bad.json', gWithSteps([[chip('lib', 'L')]]))
+  ])
+
+  it('files teams and problems under their game, games ordered by folder', () => {
+    const { games } = groupByGame(loaded)
+    expect(games.map((g) => [g.id, g.name])).toEqual([
+      ['genshin', name('genshin')],
+      ['wuwa', name('wuwa')]
+    ])
+    expect(games.map((g) => g.teams.map((t) => t.id))).toEqual([
+      ['genshin/g1', 'genshin/g2'],
+      ['wuwa/w']
+    ])
+    expect(games.map((g) => g.errors.map((e) => e.file))).toEqual([
+      ['genshin/bad.json'],
+      ['wuwa/bad.json']
+    ])
+  })
+
+  it('puts loose files, unknown folders and list failures in other', () => {
+    const listFailed = { file: 'rotations/', message: 'EACCES' }
+    const { other } = groupByGame({ ...loaded, errors: [...loaded.errors, listFailed] })
+    expect(other.map((e) => e.file)).toEqual(['loose.json', 'hsr/x.json', 'rotations/'])
+  })
+
+  it('keeps a game whose only file fails, with no teams and its one error', () => {
+    const bad = raw('genshin/bad.json', gWithSteps([[chip('lib', 'L')]]))
+    const { games } = groupByGame(loadRotations([bad, raw('wuwa/w.json', rotation())]))
+    expect(games[0]).toMatchObject({ id: 'genshin', name: name('genshin'), teams: [] })
+    expect(games[0]!.errors.map((e) => e.file)).toEqual(['genshin/bad.json'])
+  })
+
+  it('leaves out a game with no files', () => {
+    const { games } = groupByGame(loadRotations([raw('wuwa/w.json', rotation())]))
+    expect(games.map((g) => g.id)).toEqual(['wuwa'])
   })
 })

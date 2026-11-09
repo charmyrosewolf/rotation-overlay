@@ -1,15 +1,17 @@
+import type { ReactNode } from 'react'
 import { WINDOW_SIZE } from '../../shared/window'
 import styles from './App.module.css'
 import { AppBar } from './components/bar/AppBar'
 import { CollapsedBar } from './components/bar/CollapsedBar'
 import { KeysToggle } from './components/legend/KeysToggle'
 import { Legend } from './components/legend/Legend'
-import { Tabs } from './components/nav/Tabs'
+import { BackButton, GameList, TeamList } from './components/picker/Picker'
 import { FileError } from './components/rotation/FileError'
 import { TeamView } from './components/rotation/TeamView'
 import { useCollapse } from './hooks/useCollapse'
+import { useNavigation, type Shown } from './hooks/useNavigation'
 import { useRotations } from './hooks/useRotations'
-import { isBoolean, isString, useStoredState } from './hooks/useStoredState'
+import { isBoolean, useStoredState } from './hooks/useStoredState'
 import { cx } from './styles/cx'
 
 // collapsed, the page is only the bar, so the body is the bar plus its own padding
@@ -23,73 +25,104 @@ const popOut = () =>
     `popup,width=${WINDOW_SIZE.width},height=${WINDOW_SIZE.height}`
   )
 
+function PopOut() {
+  return (
+    <button
+      type="button"
+      className={styles.pop}
+      title="open in a small popup window"
+      onClick={popOut}
+    >
+      ⧉ pop out
+    </button>
+  )
+}
+
+function barTitle(shown: Shown): ReactNode {
+  switch (shown.screen) {
+    case 'rotation': {
+      const { team, variant } = shown
+      const variantLabel = variant === team.variants[0] ? undefined : variant.label
+      return <CollapsedBar teamLabel={team.label} variantLabel={variantLabel} />
+    }
+    case 'broken':
+      return shown.problem.file
+    default:
+      return 'pick a rotation'
+  }
+}
+
 export function App() {
   // the preload sets this before any script runs, so it never changes under a mounted app
   const appMode = window.overlay !== undefined
-  const { ok, errors } = useRotations()
-  const [teamId, setTeamId] = useStoredState('team', '', isString)
-  const [variantId, setVariantId] = useStoredState('variant', '', isString)
+  const loaded = useRotations()
+  const { shown, errorCount, pickGame, pickTeam, pickVariant, back } = useNavigation(loaded)
   const [showKeys, setShowKeys] = useStoredState('showKeys', false, isBoolean)
   const { collapsed, toggle } = useCollapse(measureBody)
 
-  // derived, never written back: a team gone for one bad save comes back selected
-  const team = ok.find((t) => t.id === teamId) ?? ok[0]
-  const variant = team?.variants.find((v) => v.id === variantId) ?? team?.variants[0]
+  // the app bar holds it in the app; a browser has no bar, so it heads the top row
+  const onTeam = shown.screen === 'rotation' || shown.screen === 'broken'
+  const backButton = onTeam && <BackButton errorCount={errorCount} onClick={back} />
 
-  const selectTeam = (id: string) => {
-    // a new team opens on its first variant; clicking the open one keeps its variant
-    if (id !== team?.id) setVariantId(ok.find((t) => t.id === id)?.variants[0]?.id ?? '')
-    setTeamId(id)
-  }
+  const pickerTop = !appMode && (
+    <div className={cx(styles.top, styles.end)}>
+      <PopOut />
+    </div>
+  )
+  // a broken file has no chips to explain, so it gets no legend
+  const teamTop = (legend?: ReactNode) => (
+    <div className={styles.top}>
+      {!appMode && backButton}
+      {legend}
+      <KeysToggle showKeys={showKeys} onChange={setShowKeys} />
+      {!appMode && <PopOut />}
+    </div>
+  )
 
   return (
     <div className={cx(appMode ? styles.app : styles.browser, collapsed && styles.collapsed)}>
       {appMode && (
         <AppBar
-          title={
-            team &&
-            variant && (
-              <CollapsedBar
-                teamLabel={team.label}
-                variantLabel={variant === team.variants[0] ? undefined : variant.label}
-              />
-            )
-          }
+          leading={backButton}
+          title={barTitle(shown)}
           collapsed={collapsed}
           onToggle={toggle}
         />
       )}
       {/* hidden, not unmounted, so the marked card outlives a collapse */}
       <div hidden={collapsed}>
-        {team && <Tabs as="nav" items={ok} activeId={team.id} onSelect={selectTeam} />}
-        <div className={styles.top}>
-          <Legend />
-          <KeysToggle showKeys={showKeys} onChange={setShowKeys} />
-          {!appMode && (
-            <button
-              type="button"
-              className={styles.pop}
-              title="open in a small popup window"
-              onClick={popOut}
-            >
-              ⧉ pop out
-            </button>
-          )}
-        </div>
-        {errors.length > 0 && (
-          <div className={styles.errors}>
-            {errors.map((problem) => (
-              <FileError key={problem.file} problem={problem} />
-            ))}
-          </div>
+        {shown.screen === 'games' && (
+          <>
+            {pickerTop}
+            <GameList games={shown.games} other={shown.other} onPick={pickGame} />
+          </>
         )}
-        {team && variant && (
-          <TeamView
-            team={team}
-            variant={variant}
-            onSelectVariant={setVariantId}
-            showKeys={showKeys}
-          />
+        {shown.screen === 'teams' && (
+          <>
+            {pickerTop}
+            <TeamList
+              group={shown.group}
+              onPick={pickTeam}
+              onBack={shown.canBack ? back : undefined}
+            />
+          </>
+        )}
+        {shown.screen === 'rotation' && (
+          <>
+            {teamTop(<Legend game={shown.team.game} />)}
+            <TeamView
+              team={shown.team}
+              variant={shown.variant}
+              onSelectVariant={pickVariant}
+              showKeys={showKeys}
+            />
+          </>
+        )}
+        {shown.screen === 'broken' && (
+          <>
+            {teamTop()}
+            <FileError problem={shown.problem} />
+          </>
         )}
       </div>
     </div>

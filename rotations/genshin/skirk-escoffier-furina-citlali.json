@@ -9,23 +9,25 @@
         {
           "icon": "💧",
           "name": "Furina",
+          "element": "hydro",
           "summary": "E, Q",
           "steps": [
             [
-              { "type": "move", "label": "Swap", "key": "3" },
-              { "type": "skill", "label": "Skill", "key": "E" },
-              { "type": "lib", "label": "Burst", "key": "Q" }
+              { "type": "swap", "label": "Swap", "key": "3" },
+              { "type": "skill", "label": "Skill" },
+              { "type": "burst", "label": "Burst" }
             ]
           ]
         },
         {
           "icon": "🦅",
           "name": "Citlali",
+          "element": "cryo",
           "summary": "E shield before Skirk's Q",
           "steps": [
             [
-              { "type": "move", "label": "Swap", "key": "4" },
-              { "type": "skill", "label": "Skill", "key": "E" },
+              { "type": "swap", "label": "Swap", "key": "4" },
+              { "type": "skill", "label": "Skill" },
               { "note": "shield up for Calamity of Eshu" }
             ]
           ]
@@ -33,27 +35,29 @@
         {
           "icon": "🍳",
           "name": "Escoffier",
+          "element": "cryo",
           "summary": "E, Q",
           "steps": [
             [
-              { "type": "move", "label": "Swap", "key": "2" },
-              { "type": "skill", "label": "Skill", "key": "E" },
-              { "type": "lib", "label": "Burst", "key": "Q" }
+              { "type": "swap", "label": "Swap", "key": "2" },
+              { "type": "skill", "label": "Skill" },
+              { "type": "burst", "label": "Burst" }
             ]
           ]
         },
         {
           "icon": "🗡️",
           "name": "Skirk",
+          "element": "cryo",
           "summary": "tap E, Q, NAs till Serpent's Subtlety ends",
           "steps": [
             [
-              { "type": "move", "label": "Swap", "key": "1" },
-              { "type": "skill", "label": "tap Skill", "key": "E" },
-              { "type": "lib", "label": "Burst", "key": "Q" }
+              { "type": "swap", "label": "Swap", "key": "1" },
+              { "type": "skill", "label": "tap Skill" },
+              { "type": "burst", "label": "Burst" }
             ],
             [
-              { "type": "basic", "label": "Normal Attacks", "key": "LMB spam" },
+              { "type": "normal", "label": "Normal Attacks", "key": "LMB spam" },
               { "note": "till Serpent's Subtlety runs out" }
             ]
           ]
@@ -69,7 +73,7 @@
               { "type": "skill", "label": "Skirk E", "key": "1 → E" }
             ],
             [
-              { "type": "lib", "label": "Skirk Burst", "key": "Q" },
+              { "type": "burst", "label": "Skirk Burst" },
               { "note": "when it's back" }
             ]
           ]

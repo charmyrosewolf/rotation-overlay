@@ -38,14 +38,9 @@ describe('Tabs', () => {
     expect(second?.className).toContain('active')
   })
 
-  it('is a plain row of buttons by default, not a navigation landmark', () => {
+  it('is a plain row of buttons, not a navigation landmark', () => {
     const { container } = render(<Tabs items={items} activeId="standard" onSelect={() => {}} />)
     expect(container.firstElementChild?.tagName).toBe('DIV')
     expect(screen.queryByRole('navigation')).not.toBeInTheDocument()
-  })
-
-  it('is a navigation landmark when asked to be a nav', () => {
-    render(<Tabs items={items} activeId="standard" onSelect={() => {}} as="nav" />)
-    expect(screen.getByRole('navigation')).toBeInTheDocument()
   })
 })

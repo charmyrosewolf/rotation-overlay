@@ -1,6 +1,7 @@
 import { render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it, vi } from 'vitest'
+import { ELEMENTS } from '../../data/games'
 import type { Unit } from '../../data/schema'
 import { UnitCard } from './UnitCard'
 
@@ -68,10 +69,31 @@ describe('UnitCard', () => {
     expect(card(container).className).not.toContain('marked')
   })
 
-  // not "card " (a trailing space) and not "card false" (the unmarked flag leaking in)
-  it('has a single class when not marked', () => {
+  // not "card " (a trailing space) and not "card false" (the unmarked flag leaking in); with no
+  // element on the unit this is also the guard that an element-less card looks like it always did
+  it('has a single class when neither marked nor given an element', () => {
+    expect(unit).not.toHaveProperty('element')
     const { container } = mount()
     expect(card(container).className).not.toMatch(/\s/)
+  })
+
+  it('adds its element class when the unit has an element', () => {
+    const { container } = mount({ unit: { ...bare, element: 'cryo' } })
+    expect(card(container).className).toContain('cryo')
+  })
+
+  it('has a class for every element', () => {
+    for (const element of ELEMENTS) {
+      const { container, unmount } = mount({ unit: { ...bare, element } })
+      expect(card(container).className, element).toContain(element)
+      unmount()
+    }
+  })
+
+  it('keeps marked on a tinted card', () => {
+    const { container } = mount({ unit: { ...bare, element: 'hydro' }, marked: true })
+    expect(card(container).className).toContain('marked')
+    expect(card(container).className).toContain('hydro')
   })
 
   it('calls onClick once when the card is clicked, chips included', async () => {

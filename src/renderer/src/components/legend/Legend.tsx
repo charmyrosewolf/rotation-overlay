@@ -1,23 +1,19 @@
-import { ACTION_TYPES, type ActionType } from '../../data/schema'
+import { GAMES } from '../../data/games'
 import { ActionChip } from '../rotation/ActionChip'
 import styles from './Legend.module.css'
 
-// Record, so a new action type fails to compile until it has a label
-const LABELS: Record<ActionType, string> = {
-  basic: 'Basic',
-  skill: 'Skill',
-  echo: 'Echo',
-  lib: 'Lib',
-  heavy: 'Heavy/Forte',
-  io: 'Intro/Outro',
-  move: 'Move'
-}
-
-export function Legend() {
+export function Legend({ game }: { game: string }) {
+  const chips = Object.entries(GAMES[game]?.chips ?? {})
   return (
     <div className={styles.legend}>
-      {ACTION_TYPES.map((type) => (
-        <ActionChip key={type} chip={{ type, label: LABELS[type] }} showKeys={false} small />
+      {chips.map(([type, def]) => (
+        <ActionChip
+          key={type}
+          chip={{ type, label: def.label }}
+          title={def.title}
+          showKeys={false}
+          small
+        />
       ))}
     </div>
   )

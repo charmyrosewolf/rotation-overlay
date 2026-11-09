@@ -1,6 +1,6 @@
 import { act, renderHook } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { isBoolean, isString, useStoredState } from './useStoredState'
+import { isBoolean, isString, isStringRecord, useStoredState } from './useStoredState'
 
 type Opacity = { bg: number; on: boolean }
 const isOpacity = (v: unknown): v is Opacity =>
@@ -84,5 +84,21 @@ describe('useStoredState', () => {
 
     expect(() => act(() => result.current[1]('b'))).not.toThrow()
     expect(result.current[0]).toBe('b')
+  })
+})
+
+describe('isStringRecord', () => {
+  it('accepts an empty object and an object of strings', () => {
+    expect(isStringRecord({})).toBe(true)
+    expect(isStringRecord({ a: 'b' })).toBe(true)
+  })
+
+  it.each([
+    ['an array', []],
+    ['null', null],
+    ['a string', 'x'],
+    ['an object with a non-string value', { a: 1 }]
+  ])('rejects %s', (_, v) => {
+    expect(isStringRecord(v)).toBe(false)
   })
 })

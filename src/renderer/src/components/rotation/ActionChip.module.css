@@ -9,6 +9,12 @@
 .heavy { background: var(--heavy); }
 .io { background: var(--io); }
 .move { background: var(--move); }
+/* Genshin; skill and move above are shared. burst is the eye-catcher, like lib */
+.normal { background: var(--normal); }
+.charged { background: var(--charged); }
+.plunge { background: var(--plunge); }
+.burst { background: var(--burst); color: var(--chip-ink); }
+.swap { background: var(--swap); }
 
 .key {
   margin-left: 5px; padding: 0 4px; border-radius: 3px;

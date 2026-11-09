@@ -25,6 +25,14 @@ describe('ActionChip', () => {
     expect(screen.getByText('Forte').className).toContain('heavy')
   })
 
+  it.each(['normal', 'charged', 'plunge', 'burst', 'swap'])(
+    'carries a class named for the Genshin type %s',
+    (type) => {
+      render(<ActionChip chip={{ type, label: 'X' }} showKeys={false} />)
+      expect(screen.getByText('X').className).toContain(type)
+    }
+  )
+
   it('carries the small class when small is set, and only then', () => {
     const chip = { type: 'basic', label: 'Basic' } as const
     const { rerender } = render(<ActionChip chip={chip} showKeys={false} small />)

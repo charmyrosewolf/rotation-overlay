@@ -7,8 +7,9 @@ import styles from './UnitCard.module.css'
 type Props = { unit: Unit; showKeys: boolean; marked: boolean; onClick: () => void }
 
 export function UnitCard({ unit, showKeys, marked, onClick }: Props) {
+  const cls = cx(styles.card, marked && styles.marked, unit.element && styles[unit.element])
   return (
-    <section className={cx(styles.card, marked && styles.marked)} onClick={onClick}>
+    <section className={cls} onClick={onClick}>
       <h2 className={styles.title}>
         <span>
           {unit.icon} {unit.name}

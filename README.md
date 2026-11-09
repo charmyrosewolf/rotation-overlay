@@ -1,7 +1,7 @@
 # rotation-overlay
 
-A small always-on-top window that shows combat rotations next to the game: one tab per team,
-coloured chips per action, optional key labels, a collapse-to-bar button and two opacity
+A small always-on-top window that shows combat rotations next to the game: a picker (games, then
+teams), coloured chips per action, optional key labels, a collapse-to-bar button and two opacity
 sliders. Rotations are plain JSON files under `rotations/`, read at runtime, so editing one
 updates the open window without a rebuild. Electron + electron-vite + React, styled with CSS
 Modules and one `tokens.css`.
@@ -57,20 +57,44 @@ filename is the members; neither is repeated inside the file.
 }
 ```
 
-- Tabs sort by game, then `order`, then filename. The first variant is the default; a team with
-  one variant shows no variant tabs.
-- Chip `type` is one of `basic`, `skill`, `echo`, `lib`, `heavy`, `io`, `move`. `key` is shown
-  when the *keys* box is ticked.
+- The picker lists games by folder, then a game's teams by `order`, then filename. The first
+  variant is the default; a team with one variant shows no variant tabs.
+- Chip `type` must be one of the file's game's types (the game is the folder):
+
+  | game | type | legend label | default key |
+  |---|---|---|---|
+  | `wuwa` | `basic` | Basic | none |
+  | `wuwa` | `skill` | Skill | none |
+  | `wuwa` | `echo` | Echo | none |
+  | `wuwa` | `lib` | Lib | none |
+  | `wuwa` | `heavy` | Heavy/Forte | none |
+  | `wuwa` | `io` | Intro/Outro | none |
+  | `wuwa` | `move` | Move | none |
+  | `genshin` | `normal` | Normal | LMB |
+  | `genshin` | `charged` | Charged | hold LMB |
+  | `genshin` | `plunge` | Plunge | LMB (airborne) |
+  | `genshin` | `skill` | Skill | E |
+  | `genshin` | `burst` | Burst | Q |
+  | `genshin` | `swap` | Swap | none |
+  | `genshin` | `move` | Move | none |
+
+- `key` is shown when the *keys* box is ticked. A chip's own `key` overrides the default, and a
+  type with no default shows none, so a Genshin skill needs a `key` only when it isn't `E`. For
+  something like "hold E", write it on the chip as `"key": "hold E"`.
+- Genshin units may carry an `element` (`anemo`, `geo`, `electro`, `dendro`, `hydro`, `pyro` or
+  `cryo`), which tints the unit's card. It is an error in any other game's file.
 - A step is one numbered row of chips and `{ "note": … }` items.
 - Tips join with ` · `; `**bold**` is their only markup.
-- Every object is strict: an unknown key is an error. A bad file shows a card naming the file and
-  the failing field, and the other tabs keep working.
+- Every object is strict: an unknown key is an error. A bad file is listed on the picker under its
+  game as a card naming the file and the failing field (an unknown folder or a loose file goes
+  under "Other"), and the other teams keep working. An open team whose file goes bad shows its
+  error card in place, and the back control carries a ⚠ count while any other file fails.
 
-The schema itself is `src/renderer/src/data/schema.ts` (zod; the types come from it).
+The schema itself is `src/renderer/src/data/schema.ts` (zod, built per game); the hand-written
+types beside it must accept the schema's output (checked one way).
 
 ## Future TODOs
 
-- Per-game legend and key labels, once a second game arrives.
-- HSR and Genshin rotations.
+- HSR rotations.
 - Share a rotation file (export / import).
 - Revisit the styling approach.
