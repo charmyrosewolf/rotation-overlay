@@ -1,7 +1,7 @@
 import { style, type CSSProperties } from '@vanilla-extract/css'
 import { vars } from '../../styles/theme.css'
 
-// csstype has no -webkit-app-region, so this is the one cast
+// csstype has no -webkit-app-region, hence the cast
 const noDrag = { WebkitAppRegion: 'no-drag' } as CSSProperties
 
 export const picker = style({ display: 'flex', flexDirection: 'column', gap: vars.gap })

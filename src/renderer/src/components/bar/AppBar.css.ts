@@ -1,7 +1,7 @@
 import { globalStyle, style, type CSSProperties } from '@vanilla-extract/css'
 import { vars } from '../../styles/theme.css'
 
-// csstype has no -webkit-app-region, so this is the one cast
+// csstype has no -webkit-app-region, hence the cast
 const appRegion = (value: 'drag' | 'no-drag') => ({ WebkitAppRegion: value }) as CSSProperties
 
 export const bar = style({

@@ -2,7 +2,7 @@ import { createGlobalTheme, createGlobalThemeContract } from '@vanilla-extract/c
 import type { ChipType, Element } from '../data/games'
 
 // Each leaf is the CSS name the var is written under: the sliders and test/rootVars.ts write
-// --a and --c by name, and the .css files still read the rest by name.
+// --a and --c by name.
 export const vars = createGlobalThemeContract({
   bg: 'bg',
   card: 'card',

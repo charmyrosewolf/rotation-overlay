@@ -7,7 +7,7 @@ it('keeps the CSS names the sliders write', () => {
   expect(vars.c).toBe('var(--c)')
 })
 
-it('keeps every token at its tokens.css name', () => {
+it('keeps every token at its original CSS variable name', () => {
   expect(vars.bg).toBe('var(--bg)')
   expect(vars.chip.burst).toBe('var(--burst)')
   expect(vars.element.cryo).toBe('var(--cryo)')
