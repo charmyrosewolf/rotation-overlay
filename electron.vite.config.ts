@@ -1,3 +1,4 @@
+import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'electron-vite'
 
@@ -7,7 +8,7 @@ export default defineConfig({
   preload: { build: { rolldownOptions: { output: { format: 'cjs' } } } },
   renderer: {
     root: 'src/renderer',
-    plugins: [react()],
+    plugins: [vanillaExtractPlugin(), react()],
     server: { port: 5175, strictPort: true }
   }
 })

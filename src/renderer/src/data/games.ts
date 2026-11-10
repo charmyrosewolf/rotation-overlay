@@ -8,7 +8,8 @@ export type ChipDef = { label: string; title: string; key?: string }
 export type GameDef = { name: string; chips: Record<string, ChipDef>; elements: boolean }
 
 // Insertion order of `chips` is the legend order.
-export const GAMES: Record<string, GameDef> = {
+// `satisfies` (not an annotation) keeps the chip keys literal, for ChipType.
+const games = {
   genshin: {
     name: 'Genshin Impact',
     elements: true,
@@ -35,4 +36,11 @@ export const GAMES: Record<string, GameDef> = {
       move: { label: 'Move', title: 'Dodge / Jump' }
     }
   }
-}
+} satisfies Record<string, GameDef>
+
+// Every game's chip keys, so a colour map can be checked for completeness.
+export type ChipType = {
+  [G in keyof typeof games]: keyof (typeof games)[G]['chips']
+}[keyof typeof games]
+
+export const GAMES: Record<string, GameDef> = games

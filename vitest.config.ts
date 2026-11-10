@@ -1,3 +1,4 @@
+import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vitest/config'
 
@@ -5,7 +6,7 @@ import { defineConfig } from 'vitest/config'
 // css.include: by default vitest swaps every CSS Module for a proxy that answers any key,
 // so a renamed or missing class is invisible to the tests. Real modules make styles.x undefined.
 export default defineConfig({
-  plugins: [react()],
+  plugins: [vanillaExtractPlugin(), react()],
   test: {
     css: { include: /\.module\.css$/ },
     environment: 'jsdom',
