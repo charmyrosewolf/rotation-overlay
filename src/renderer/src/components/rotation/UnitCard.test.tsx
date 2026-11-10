@@ -67,6 +67,7 @@ describe('UnitCard', () => {
   it('adds the marked class when marked, and only then', () => {
     const { container, rerender } = mount({ marked: true })
     expect(card(container)).toHaveClass(marked)
+    for (const e of ELEMENTS) expect(card(container), e).not.toHaveClass(edge[e])
     rerender(<UnitCard {...props({ marked: false })} />)
     expect(card(container)).not.toHaveClass(marked)
   })

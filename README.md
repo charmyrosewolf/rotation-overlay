@@ -3,8 +3,8 @@
 A small always-on-top window that shows combat rotations next to the game: a picker (games, then
 teams), coloured chips per action, optional key labels, a collapse-to-bar button and two opacity
 sliders. Rotations are plain JSON files under `rotations/`, read at runtime, so editing one
-updates the open window without a rebuild. Electron + electron-vite + React, styled with CSS
-Modules and one `tokens.css`.
+updates the open window without a rebuild. Electron + electron-vite + React, styled with Vanilla
+Extract and one theme, `src/renderer/src/styles/theme.css.ts`.
 
 ![The overlay over Wuthering Waves, showing the Augusta · Iuno team's rotation](assets/screenshot.webp)
 
