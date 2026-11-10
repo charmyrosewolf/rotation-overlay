@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import { WINDOW_SIZE } from '../../shared/window'
-import styles from './App.module.css'
+import * as styles from './App.css'
 import { AppBar } from './components/bar/AppBar'
 import { CollapsedBar } from './components/bar/CollapsedBar'
 import { KeysToggle } from './components/legend/KeysToggle'

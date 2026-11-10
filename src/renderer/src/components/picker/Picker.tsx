@@ -1,6 +1,6 @@
 import type { FileProblem, GameGroup } from '../../data/loadRotations'
 import { FileError } from '../rotation/FileError'
-import styles from './Picker.module.css'
+import * as styles from './Picker.css'
 
 const warning = (n: number) => `⚠ ${n}`
 

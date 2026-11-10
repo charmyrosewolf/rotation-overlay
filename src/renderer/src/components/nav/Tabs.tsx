@@ -1,5 +1,5 @@
 import { cx } from '../../styles/cx'
-import styles from './Tabs.module.css'
+import * as styles from './Tabs.css'
 
 type Props = {
   items: { id: string; label: string }[]

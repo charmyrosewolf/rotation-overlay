@@ -1,4 +1,4 @@
-import styles from './KeysToggle.module.css'
+import * as styles from './KeysToggle.css'
 
 type Props = { showKeys: boolean; onChange: (showKeys: boolean) => void }
 

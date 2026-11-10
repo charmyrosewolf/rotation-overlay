@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import { cx } from '../../styles/cx'
-import styles from './AppBar.module.css'
+import * as styles from './AppBar.css'
 import { OpacitySlider } from './OpacitySlider'
 
 // title is a node so the collapsed label can be a <CollapsedBar>; a plain string works too.

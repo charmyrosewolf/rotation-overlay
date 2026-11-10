@@ -1,7 +1,0 @@
-.tabs { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: var(--gap); }
-.tab {
-  flex: 1 1 auto; padding: 4px 8px; border: 1px solid var(--line); border-radius: 6px;
-  background: var(--app-panel); color: var(--dim); font-size: 12px; font-weight: 600;
-  cursor: pointer;
-}
-.active { background: var(--lib); border-color: var(--lib); color: var(--chip-ink); }

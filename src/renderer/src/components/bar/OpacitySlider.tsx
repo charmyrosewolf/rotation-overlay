@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useStoredState } from '../../hooks/useStoredState'
-import styles from './OpacitySlider.module.css'
+import * as styles from './OpacitySlider.css'
 
 type Props = {
   title: string

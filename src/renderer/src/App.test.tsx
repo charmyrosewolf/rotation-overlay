@@ -3,6 +3,8 @@ import userEvent from '@testing-library/user-event'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import type { RawFile } from '../../preload/api'
 import { App } from './App'
+import { collapsed } from './App.css'
+import { marked } from './components/rotation/UnitCard.css'
 import { installOverlay } from './test/overlay'
 import { resetRootVars } from './test/rootVars'
 
@@ -326,12 +328,12 @@ describe('App collapse', () => {
     store('lastTeam', 'wuwa/alpha')
     stubOverlay([alpha])
     const container = await mountApp()
-    const rootClass = () => container.firstElementChild?.className
-    expect(rootClass()).not.toContain('collapsed')
+    const root = () => container.firstElementChild
+    expect(root()).not.toHaveClass(collapsed)
     await collapse()
-    expect(rootClass()).toContain('collapsed')
+    expect(root()).toHaveClass(collapsed)
     await userEvent.click(screen.getByTitle('expand'))
-    expect(rootClass()).not.toContain('collapsed')
+    expect(root()).not.toHaveClass(collapsed)
   })
 
   it('keeps the marked card through a collapse and an expand', async () => {
@@ -343,13 +345,13 @@ describe('App collapse', () => {
     store('lastTeam', 'wuwa/duo')
     stubOverlay([duo])
     await mountApp()
-    const marked = () =>
-      Array.from(document.querySelectorAll('section')).map((s) => s.className.includes('marked'))
+    const markedFlags = () =>
+      Array.from(document.querySelectorAll('section')).map((s) => s.classList.contains(marked))
     await userEvent.click(screen.getByRole('heading', { name: '🌀 D2' }))
-    expect(marked()).toEqual([false, true])
+    expect(markedFlags()).toEqual([false, true])
     await collapse()
     await userEvent.click(screen.getByTitle('expand'))
-    expect(marked()).toEqual([false, true])
+    expect(markedFlags()).toEqual([false, true])
   })
 
   it('titles the bar with the team alone on its first variant', async () => {

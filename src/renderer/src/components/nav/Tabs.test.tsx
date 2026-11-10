@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it, vi } from 'vitest'
 import { Tabs } from './Tabs'
+import { active } from './Tabs.css'
 
 const standard = { id: 'standard', label: 'Standard' }
 const practice = { id: 'qingxiao-practice', label: 'Qingxiao practice' }
@@ -34,8 +35,8 @@ describe('Tabs', () => {
   it('styles the active tab as active and only that one', () => {
     render(<Tabs items={items} activeId="qingxiao-practice" onSelect={() => {}} />)
     const [first, second] = screen.getAllByRole('button')
-    expect(first?.className).not.toContain('active')
-    expect(second?.className).toContain('active')
+    expect(first).not.toHaveClass(active)
+    expect(second).toHaveClass(active)
   })
 
   it('is a plain row of buttons, not a navigation landmark', () => {
