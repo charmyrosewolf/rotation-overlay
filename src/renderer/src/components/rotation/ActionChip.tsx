@@ -1,6 +1,6 @@
+import type { ChipType } from '../../data/games'
 import type { Chip } from '../../data/schema'
-import { cx } from '../../styles/cx'
-import styles from './ActionChip.module.css'
+import { chip as chipStyle, key } from './ActionChip.css'
 
 type Props = {
   chip: Chip
@@ -12,9 +12,10 @@ type Props = {
 // The key is a real element, not ::after, so showKeys off leaves it out of the DOM.
 export function ActionChip({ chip, showKeys, small = false, title }: Props) {
   return (
-    <span className={cx(styles.chip, styles[chip.type], small && styles.small)} title={title}>
+    // the schema has already rejected a type outside the game, so the cast is safe here
+    <span className={chipStyle({ type: chip.type as ChipType, small })} title={title}>
       {chip.label}
-      {showKeys && chip.key ? <span className={styles.key}>{chip.key}</span> : null}
+      {showKeys && chip.key ? <span className={key}>{chip.key}</span> : null}
     </span>
   )
 }

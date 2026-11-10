@@ -1,11 +1,11 @@
 import { GAMES } from '../../data/games'
 import { ActionChip } from '../rotation/ActionChip'
-import styles from './Legend.module.css'
+import { legend } from './Legend.css'
 
 export function Legend({ game }: { game: string }) {
   const chips = Object.entries(GAMES[game]?.chips ?? {})
   return (
-    <div className={styles.legend}>
+    <div className={legend}>
       {chips.map(([type, def]) => (
         <ActionChip
           key={type}

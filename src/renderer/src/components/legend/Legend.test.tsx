@@ -1,7 +1,10 @@
 import { render } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
+import type { ChipType } from '../../data/games'
+import { chip as chipStyle } from '../rotation/ActionChip.css'
 import { Legend } from './Legend'
 
+const variant = chipStyle.classNames.variants
 const chipsOf = (container: HTMLElement) => Array.from(container.firstElementChild?.children ?? [])
 
 describe('Legend', () => {
@@ -15,15 +18,15 @@ describe('Legend', () => {
   it('colours each label by its own type', () => {
     const { container } = render(<Legend game="wuwa" />)
     const chips = chipsOf(container)
-    const types = ['basic', 'skill', 'echo', 'lib', 'heavy', 'io', 'move']
-    types.forEach((t, i) => expect(chips[i]?.className).toContain(t))
+    const types: ChipType[] = ['basic', 'skill', 'echo', 'lib', 'heavy', 'io', 'move']
+    types.forEach((t, i) => expect(chips[i]).toHaveClass(variant.type[t]))
   })
 
   it('draws every chip small', () => {
     const { container } = render(<Legend game="wuwa" />)
     const chips = chipsOf(container)
     expect(chips).toHaveLength(7)
-    chips.forEach((c) => expect(c.className).toContain('small'))
+    chips.forEach((c) => expect(c).toHaveClass(variant.small.true))
   })
 
   it('draws no key badges', () => {
@@ -42,8 +45,8 @@ describe('Legend', () => {
     expect(chips.map((c) => c.textContent)).toEqual([
       'Normal', 'Charged', 'Plunge', 'Skill', 'Burst', 'Swap', 'Move'
     ])
-    const types = ['normal', 'charged', 'plunge', 'skill', 'burst', 'swap', 'move']
-    types.forEach((t, i) => expect(chips[i]?.className).toContain(t))
+    const types: ChipType[] = ['normal', 'charged', 'plunge', 'skill', 'burst', 'swap', 'move']
+    types.forEach((t, i) => expect(chips[i]).toHaveClass(variant.type[t]))
   })
 
   it('gives each Genshin chip its hover title', () => {
