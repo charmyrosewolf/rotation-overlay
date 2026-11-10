@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 import type { Step } from '../../data/schema'
+import { block } from './Note.css'
 import { StepRow } from './StepRow'
 
 const step: Step = [
@@ -18,6 +19,6 @@ describe('StepRow', () => {
 
   it('draws an inline note, not a block one', () => {
     render(<StepRow step={step} n={1} showKeys={false} />)
-    expect(screen.getByText('then').className).not.toContain('block')
+    expect(screen.getByText('then')).not.toHaveClass(block)
   })
 })

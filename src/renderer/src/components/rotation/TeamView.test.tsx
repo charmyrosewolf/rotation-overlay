@@ -4,6 +4,7 @@ import { describe, expect, it, vi } from 'vitest'
 import type { Team } from '../../data/loadRotations'
 import type { Unit, Variant } from '../../data/schema'
 import { TeamView } from './TeamView'
+import { marked } from './UnitCard.css'
 
 const unit = (name: string): Unit => ({
   icon: '🌀',
@@ -45,7 +46,7 @@ const props = (over: Partial<Props> = {}): Props => ({
 })
 
 const cards = (c: HTMLElement) => Array.from(c.querySelectorAll('section'))
-const markedFlags = (c: HTMLElement) => cards(c).map((s) => s.className.includes('marked'))
+const markedFlags = (c: HTMLElement) => cards(c).map((s) => s.classList.contains(marked))
 const clickUnit = (name: string) =>
   userEvent.click(screen.getByRole('heading', { name: `🌀 ${name}` }))
 const tipsEl = (c: HTMLElement) => c.querySelector('[class*="tips"]')

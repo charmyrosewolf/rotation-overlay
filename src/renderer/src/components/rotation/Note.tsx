@@ -1,5 +1,5 @@
 import { cx } from '../../styles/cx'
-import styles from './Note.module.css'
+import * as styles from './Note.css'
 
 type Props = { text: string; block?: boolean }
 

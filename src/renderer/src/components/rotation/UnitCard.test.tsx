@@ -3,7 +3,9 @@ import userEvent from '@testing-library/user-event'
 import { describe, expect, it, vi } from 'vitest'
 import { ELEMENTS } from '../../data/games'
 import type { Unit } from '../../data/schema'
+import { block } from './Note.css'
 import { UnitCard } from './UnitCard'
+import { card as cardClass, edge, marked } from './UnitCard.css'
 
 const unit: Unit = {
   icon: '🌀',
@@ -49,7 +51,7 @@ describe('UnitCard', () => {
   it('ends with the unit note as a block note', () => {
     const { container } = mount()
     const note = screen.getByText('repeat from Mornye')
-    expect(note.className).toContain('block')
+    expect(note).toHaveClass(block)
     expect(card(container).lastElementChild).toBe(note)
   })
 
@@ -64,36 +66,39 @@ describe('UnitCard', () => {
 
   it('adds the marked class when marked, and only then', () => {
     const { container, rerender } = mount({ marked: true })
-    expect(card(container).className).toContain('marked')
+    expect(card(container)).toHaveClass(marked)
     rerender(<UnitCard {...props({ marked: false })} />)
-    expect(card(container).className).not.toContain('marked')
+    expect(card(container)).not.toHaveClass(marked)
   })
 
-  // not "card " (a trailing space) and not "card false" (the unmarked flag leaking in); with no
+  // the no-whitespace check catches the unmarked flag leaking in as "card false"; with no
   // element on the unit this is also the guard that an element-less card looks like it always did
-  it('has a single class when neither marked nor given an element', () => {
+  it('has only the card class when neither marked nor given an element', () => {
     expect(unit).not.toHaveProperty('element')
     const { container } = mount()
+    expect(card(container)).toHaveClass(cardClass)
+    expect(card(container)).not.toHaveClass(marked)
+    for (const e of ELEMENTS) expect(card(container), e).not.toHaveClass(edge[e])
     expect(card(container).className).not.toMatch(/\s/)
   })
 
   it('adds its element class when the unit has an element', () => {
     const { container } = mount({ unit: { ...bare, element: 'cryo' } })
-    expect(card(container).className).toContain('cryo')
+    expect(card(container)).toHaveClass(edge.cryo)
   })
 
   it('has a class for every element', () => {
     for (const element of ELEMENTS) {
       const { container, unmount } = mount({ unit: { ...bare, element } })
-      expect(card(container).className, element).toContain(element)
+      expect(card(container), element).toHaveClass(edge[element])
       unmount()
     }
   })
 
   it('keeps marked on a tinted card', () => {
     const { container } = mount({ unit: { ...bare, element: 'hydro' }, marked: true })
-    expect(card(container).className).toContain('marked')
-    expect(card(container).className).toContain('hydro')
+    expect(card(container)).toHaveClass(marked)
+    expect(card(container)).toHaveClass(edge.hydro)
   })
 
   it('calls onClick once when the card is clicked, chips included', async () => {

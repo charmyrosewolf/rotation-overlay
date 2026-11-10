@@ -2,12 +2,12 @@ import type { Unit } from '../../data/schema'
 import { cx } from '../../styles/cx'
 import { Note } from './Note'
 import { StepRow } from './StepRow'
-import styles from './UnitCard.module.css'
+import * as styles from './UnitCard.css'
 
 type Props = { unit: Unit; showKeys: boolean; marked: boolean; onClick: () => void }
 
 export function UnitCard({ unit, showKeys, marked, onClick }: Props) {
-  const cls = cx(styles.card, marked && styles.marked, unit.element && styles[unit.element])
+  const cls = cx(styles.card, marked && styles.marked, unit.element && styles.edge[unit.element])
   return (
     <section className={cls} onClick={onClick}>
       <h2 className={styles.title}>

@@ -1,5 +1,5 @@
 import { Fragment, type ReactNode } from 'react'
-import styles from './Tips.module.css'
+import * as styles from './Tips.css'
 
 // split() with a capture group alternates text / captured, so odd parts are the bold ones.
 // Only text nodes and <b> are ever built; nothing is parsed as HTML.

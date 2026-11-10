@@ -1,7 +1,7 @@
 import { isChip, type Step } from '../../data/schema'
 import { ActionChip } from './ActionChip'
 import { Note } from './Note'
-import styles from './StepRow.module.css'
+import * as styles from './StepRow.css'
 
 type Props = { step: Step; n: number; showKeys: boolean }
 

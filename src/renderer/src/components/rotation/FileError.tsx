@@ -1,5 +1,5 @@
 import type { FileProblem } from '../../data/loadRotations'
-import styles from './FileError.module.css'
+import * as styles from './FileError.css'
 
 type Props = { problem: FileProblem }
 

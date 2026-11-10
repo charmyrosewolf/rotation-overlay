@@ -1,17 +1,18 @@
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 import { Note } from './Note'
+import { block } from './Note.css'
 
 describe('Note', () => {
   it('shows the text as an inline note by default', () => {
     render(<Note text="then wait" />)
     expect(screen.getByText('then wait')).toBeInTheDocument()
-    expect(screen.getByText('then wait').className).not.toContain('block')
+    expect(screen.getByText('then wait')).not.toHaveClass(block)
   })
 
   it('carries the block class when block is set', () => {
     render(<Note text="repeat from Mornye" block />)
-    expect(screen.getByText('repeat from Mornye').className).toContain('block')
+    expect(screen.getByText('repeat from Mornye')).toHaveClass(block)
   })
 
   it('keeps markup in the text literal, no HTML injection', () => {
