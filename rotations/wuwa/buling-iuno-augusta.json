@@ -1,0 +1,190 @@
+{
+  "label": "⚡ Wastes 7–8 · Buling",
+  "order": 7,
+  "variants": [
+    {
+      "id": "first-half",
+      "label": "1st half",
+      "units": [
+        {
+          "icon": "🐉",
+          "name": "Buling",
+          "summary": "tap ×4, skill, heavy, out",
+          "steps": [
+            [
+              { "type": "basic", "label": "B1-2-3-4" },
+              { "note": "cancel 4th" },
+              { "type": "skill", "label": "Skill", "key": "E" }
+            ],
+            [
+              { "type": "basic", "label": "B4", "key": "LMB" },
+              { "note": "hold at once" },
+              { "type": "heavy", "label": "Heavy hold", "key": "hold LMB" }
+            ],
+            [
+              { "type": "echo", "label": "Echo", "key": "Q" },
+              { "type": "lib", "label": "Lib", "key": "R" },
+              { "note": "only if charged" },
+              { "type": "io", "label": "Outro" },
+              { "note": "Concerto starts full" }
+            ]
+          ]
+        },
+        {
+          "icon": "🌙",
+          "name": "Iuno",
+          "summary": "echo, skill, flux, skill ×2, fullness",
+          "steps": [
+            [
+              { "type": "io", "label": "Intro" },
+              { "type": "echo", "label": "Echo", "key": "Q" },
+              { "type": "skill", "label": "Skill", "key": "E" },
+              { "note": "cancel" }
+            ],
+            [
+              { "type": "lib", "label": "Lib", "key": "R" },
+              { "note": "skip if not charged" },
+              { "type": "move", "label": "Jump" },
+              { "note": "Heavy Flux" }
+            ],
+            [
+              { "type": "skill", "label": "Skill 1", "key": "E" },
+              { "type": "basic", "label": "B1-2-3" },
+              { "type": "skill", "label": "Skill 2", "key": "E" }
+            ],
+            [
+              { "type": "heavy", "label": "Heavy", "key": "hold LMB" },
+              { "note": "Absolute Fullness" },
+              { "type": "io", "label": "Outro" },
+              { "note": "straight into Augusta" }
+            ]
+          ]
+        },
+        {
+          "icon": "⚡",
+          "name": "Augusta",
+          "summary": "heavy-skill-heavy, oath, sunborne ×9",
+          "steps": [
+            [
+              { "type": "io", "label": "Intro" },
+              { "type": "heavy", "label": "Heavy", "key": "hold LMB" },
+              { "type": "skill", "label": "Skill", "key": "E" },
+              { "type": "heavy", "label": "Heavy", "key": "hold LMB" }
+            ],
+            [
+              { "type": "lib", "label": "Lib Oath", "key": "R" },
+              { "note": "once Burning Waves is up" },
+              { "type": "skill", "label": "Skill 1-2-3" }
+            ],
+            [
+              { "type": "lib", "label": "Sunborne ×9" },
+              { "type": "lib", "label": "Protector" }
+            ],
+            [
+              { "type": "echo", "label": "Echo", "key": "Q" },
+              { "type": "io", "label": "Outro" }
+            ]
+          ]
+        }
+      ],
+      "tips": [
+        "**Solacer check**: Buling's 1st Flare is her Intro on the loop back; read Augusta's buffs on her next stint",
+        "**Outro out of Absolute Fullness**: it won't interrupt it",
+        "**Hold Eternal Oath** till Burning Waves is up",
+        "**Don't swap** during Augusta's Outro",
+        "**Never Lib** Cuddle Wuddle"
+      ]
+    },
+    {
+      "id": "loop",
+      "label": "Loop",
+      "units": [
+        {
+          "icon": "🐉",
+          "name": "Buling",
+          "summary": "tap ×4, skill, heavy, ult",
+          "steps": [
+            [
+              { "type": "io", "label": "Intro" },
+              { "note": "Electro Flare" },
+              { "type": "basic", "label": "B1-2-3-4" },
+              { "note": "cancel 4th" },
+              { "type": "skill", "label": "Skill", "key": "E" }
+            ],
+            [
+              { "type": "basic", "label": "B4", "key": "LMB" },
+              { "note": "hold at once" },
+              { "type": "heavy", "label": "Heavy hold", "key": "hold LMB" }
+            ],
+            [
+              { "type": "lib", "label": "Lib", "key": "R" },
+              { "note": "cancels 2nd Forte" },
+              { "type": "echo", "label": "Echo", "key": "Q" },
+              { "type": "lib", "label": "Lib", "key": "R" },
+              { "type": "io", "label": "Outro" }
+            ]
+          ]
+        },
+        {
+          "icon": "🌙",
+          "name": "Iuno",
+          "summary": "echo, skill, jump, ult, skill ×2, fullness",
+          "steps": [
+            [
+              { "type": "io", "label": "Intro" },
+              { "type": "echo", "label": "Echo", "key": "Q" },
+              { "type": "skill", "label": "Skill", "key": "E" },
+              { "note": "for energy" }
+            ],
+            [
+              { "type": "move", "label": "Jump" },
+              { "type": "lib", "label": "Lib", "key": "R" }
+            ],
+            [
+              { "type": "skill", "label": "Skill 1", "key": "E" },
+              { "type": "basic", "label": "B1-2-3" },
+              { "type": "skill", "label": "Skill 2", "key": "E" }
+            ],
+            [
+              { "type": "heavy", "label": "Heavy", "key": "hold LMB" },
+              { "type": "io", "label": "Outro" },
+              { "note": "straight into Augusta" }
+            ]
+          ]
+        },
+        {
+          "icon": "⚡",
+          "name": "Augusta",
+          "summary": "heavy-skill-heavy, oath, sunborne ×9",
+          "steps": [
+            [
+              { "type": "io", "label": "Intro" },
+              { "type": "heavy", "label": "Heavy", "key": "hold LMB" },
+              { "type": "skill", "label": "Skill", "key": "E" },
+              { "type": "heavy", "label": "Heavy", "key": "hold LMB" }
+            ],
+            [
+              { "type": "lib", "label": "Lib Oath", "key": "R" },
+              { "note": "once Burning Waves is up" },
+              { "type": "skill", "label": "Skill 1-2-3" }
+            ],
+            [
+              { "type": "lib", "label": "Sunborne ×9" },
+              { "type": "lib", "label": "Protector" }
+            ],
+            [
+              { "type": "echo", "label": "Echo", "key": "Q" },
+              { "type": "io", "label": "Outro" }
+            ]
+          ],
+          "note": "repeat from Buling"
+        }
+      ],
+      "tips": [
+        "**Solacer check**: Augusta's buff list now; team-wide means stage 8 keeps Buling",
+        "**2nd half**: Libs start full, so each unit Libs the moment it lands",
+        "**Don't swap** during Augusta's Outro"
+      ]
+    }
+  ]
+}

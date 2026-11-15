@@ -94,6 +94,167 @@
         "**Verina's Echo is Fallacy**",
         "**start holding Lib** before the last dive lands"
       ]
+    },
+    {
+      "id": "wastes-first-half",
+      "label": "Wastes 1st half",
+      "units": [
+        {
+          "icon": "🌿",
+          "name": "Verina",
+          "summary": "skill, echo, out",
+          "steps": [
+            [
+              { "type": "skill", "label": "Skill", "key": "E" },
+              { "type": "echo", "label": "Echo", "key": "Q" },
+              { "note": "Concerto starts full" },
+              { "type": "io", "label": "Outro" }
+            ]
+          ]
+        },
+        {
+          "icon": "🌙",
+          "name": "Iuno",
+          "summary": "echo, skill, flux, skill ×2, fullness",
+          "steps": [
+            [
+              { "type": "io", "label": "Intro" },
+              { "type": "echo", "label": "Echo", "key": "Q" },
+              { "type": "skill", "label": "Skill", "key": "E" },
+              { "note": "cancel" }
+            ],
+            [
+              { "type": "lib", "label": "Lib", "key": "R" },
+              { "note": "skip if not charged" },
+              { "type": "move", "label": "Jump" },
+              { "note": "Heavy Flux" }
+            ],
+            [
+              { "type": "skill", "label": "Skill 1", "key": "E" },
+              { "type": "basic", "label": "B1-2-3" },
+              { "type": "skill", "label": "Skill 2", "key": "E" }
+            ],
+            [
+              { "type": "heavy", "label": "Heavy", "key": "hold LMB" },
+              { "note": "Absolute Fullness" },
+              { "type": "io", "label": "Outro" },
+              { "note": "straight into Augusta" }
+            ]
+          ]
+        },
+        {
+          "icon": "⚡",
+          "name": "Augusta",
+          "summary": "heavy-skill-heavy, oath, sunborne ×9",
+          "steps": [
+            [
+              { "type": "io", "label": "Intro" },
+              { "type": "heavy", "label": "Heavy", "key": "hold LMB" },
+              { "type": "skill", "label": "Skill", "key": "E" },
+              { "type": "heavy", "label": "Heavy", "key": "hold LMB" }
+            ],
+            [
+              { "type": "lib", "label": "Lib Oath", "key": "R" },
+              { "note": "once Burning Waves is up" },
+              { "type": "skill", "label": "Skill 1-2-3" }
+            ],
+            [
+              { "type": "lib", "label": "Sunborne ×9" },
+              { "type": "lib", "label": "Protector" }
+            ],
+            [
+              { "type": "echo", "label": "Echo", "key": "Q" },
+              { "type": "io", "label": "Outro" }
+            ]
+          ]
+        }
+      ],
+      "tips": [
+        "**Stage 8 only if Solacer is self-only**: slot Judgment",
+        "**Outro out of Absolute Fullness**: it won't interrupt it",
+        "**Hold Eternal Oath** till Burning Waves is up",
+        "**Don't swap** during Augusta's Outro",
+        "**Never Lib** Cuddle Wuddle"
+      ]
+    },
+    {
+      "id": "wastes-loop",
+      "label": "Wastes loop",
+      "units": [
+        {
+          "icon": "🌿",
+          "name": "Verina",
+          "summary": "skill, ult, echo, out",
+          "steps": [
+            [
+              { "type": "skill", "label": "Skill", "key": "E" },
+              { "type": "lib", "label": "Lib", "key": "R" }
+            ],
+            [
+              { "type": "echo", "label": "Echo", "key": "Q" },
+              { "type": "io", "label": "Outro" }
+            ]
+          ]
+        },
+        {
+          "icon": "🌙",
+          "name": "Iuno",
+          "summary": "echo, skill, jump, ult, skill ×2, fullness",
+          "steps": [
+            [
+              { "type": "io", "label": "Intro" },
+              { "type": "echo", "label": "Echo", "key": "Q" },
+              { "type": "skill", "label": "Skill", "key": "E" },
+              { "note": "for energy" }
+            ],
+            [
+              { "type": "move", "label": "Jump" },
+              { "type": "lib", "label": "Lib", "key": "R" }
+            ],
+            [
+              { "type": "skill", "label": "Skill 1", "key": "E" },
+              { "type": "basic", "label": "B1-2-3" },
+              { "type": "skill", "label": "Skill 2", "key": "E" }
+            ],
+            [
+              { "type": "heavy", "label": "Heavy", "key": "hold LMB" },
+              { "type": "io", "label": "Outro" },
+              { "note": "straight into Augusta" }
+            ]
+          ]
+        },
+        {
+          "icon": "⚡",
+          "name": "Augusta",
+          "summary": "heavy-skill-heavy, oath, sunborne ×9",
+          "steps": [
+            [
+              { "type": "io", "label": "Intro" },
+              { "type": "heavy", "label": "Heavy", "key": "hold LMB" },
+              { "type": "skill", "label": "Skill", "key": "E" },
+              { "type": "heavy", "label": "Heavy", "key": "hold LMB" }
+            ],
+            [
+              { "type": "lib", "label": "Lib Oath", "key": "R" },
+              { "note": "once Burning Waves is up" },
+              { "type": "skill", "label": "Skill 1-2-3" }
+            ],
+            [
+              { "type": "lib", "label": "Sunborne ×9" },
+              { "type": "lib", "label": "Protector" }
+            ],
+            [
+              { "type": "echo", "label": "Echo", "key": "Q" },
+              { "type": "io", "label": "Outro" }
+            ]
+          ],
+          "note": "repeat from Verina"
+        }
+      ],
+      "tips": [
+        "**2nd half**: Libs start full, so each unit Libs the moment it lands",
+        "**Don't swap** during Augusta's Outro"
+      ]
     }
   ]
 }

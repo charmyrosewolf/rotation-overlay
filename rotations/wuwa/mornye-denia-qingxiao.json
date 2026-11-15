@@ -1,5 +1,5 @@
 {
-  "label": "🍃 Hazard F3–4",
+  "label": "🍃 Qingxiao · Denia",
   "order": 4,
   "variants": [
     {
@@ -89,6 +89,97 @@
       "tips": [
         "**Swap in by Intro**: each one refreshes +15% team DMG (20s)",
         "**don't camp** one unit 20s",
+        "Qingxiao **never casts Skill**",
+        "**Land every Tune Break**",
+        "**Wastes**: Denia to **Tune Strain** mode for Scale / Hopebearer",
+        "**Wastes**: hold Qingxiao's Lib till Burning Waves is up; **never Lib** Cuddle Wuddle"
+      ]
+    },
+    {
+      "id": "libs-full",
+      "label": "Libs full",
+      "units": [
+        {
+          "icon": "🛡️",
+          "name": "Mornye",
+          "summary": "tap ×3, ult, skill",
+          "steps": [
+            [
+              { "type": "io", "label": "Intro" },
+              { "type": "basic", "label": "B1-2-3" },
+              { "note": "cancel" },
+              { "type": "lib", "label": "Lib", "key": "R" }
+            ],
+            [
+              { "type": "skill", "label": "Skill", "key": "E" },
+              { "note": "cancel" },
+              { "type": "heavy", "label": "Heavy", "key": "hold LMB" },
+              { "type": "heavy", "label": "Heavy", "key": "hold LMB" }
+            ],
+            [
+              { "type": "echo", "label": "Echo", "key": "Q" },
+              { "type": "io", "label": "Outro" }
+            ]
+          ]
+        },
+        {
+          "icon": "🫧",
+          "name": "Denia",
+          "summary": "B4, skill, ult · dodge · skill ×2, ult",
+          "steps": [
+            [
+              { "type": "io", "label": "Intro" },
+              { "type": "basic", "label": "B4", "key": "LMB" },
+              { "type": "skill", "label": "Skill", "key": "E" },
+              { "type": "lib", "label": "Lib", "key": "R" }
+            ],
+            [
+              { "type": "basic", "label": "B1-2" },
+              { "type": "move", "label": "Dodge" },
+              { "type": "basic", "label": "B1-2" }
+            ],
+            [
+              { "type": "skill", "label": "Skill", "key": "E" },
+              { "type": "skill", "label": "Skill", "key": "E" },
+              { "type": "lib", "label": "Lib", "key": "R" }
+            ],
+            [
+              { "type": "echo", "label": "Echo", "key": "Q" },
+              { "type": "io", "label": "Outro" }
+            ]
+          ]
+        },
+        {
+          "icon": "🍃",
+          "name": "Qingxiao",
+          "summary": "air 1-2-3, ground 1-2, tune, forte",
+          "steps": [
+            [
+              { "type": "io", "label": "Intro" },
+              { "type": "basic", "label": "air B1-2-3" },
+              { "type": "basic", "label": "ground B1-2" }
+            ],
+            [
+              { "type": "heavy", "label": "Tune Break" },
+              { "type": "heavy", "label": "Stringblade" },
+              { "type": "heavy", "label": "Heavy", "key": "hold LMB" }
+            ],
+            [
+              { "type": "basic", "label": "B1-2-3-4" },
+              { "type": "heavy", "label": "Heavy", "key": "hold LMB" }
+            ],
+            [
+              { "type": "lib", "label": "Lib", "key": "R" },
+              { "type": "echo", "label": "Echo", "key": "Q" },
+              { "type": "io", "label": "Outro" }
+            ]
+          ],
+          "note": "repeat from Mornye"
+        }
+      ],
+      "tips": [
+        "**Libs start full** (Wastes 2nd half): Mornye and Denia Lib the moment they land",
+        "**Swap in by Intro**: each one refreshes +15% team DMG (20s)",
         "Qingxiao **never casts Skill**"
       ]
     },
