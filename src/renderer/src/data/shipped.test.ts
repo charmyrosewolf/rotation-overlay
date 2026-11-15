@@ -2,7 +2,9 @@
 import { resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { listRotations } from '../../../main/rotations'
+import { GAMES } from './games'
 import { groupByGame, loadRotations } from './loadRotations'
+import type { Chip } from './schema'
 
 // Reads the real rotations/ folder through the same list + parse path the app uses.
 // Those files are edited live, so content is not pinned beyond validity, the game folders
@@ -37,6 +39,19 @@ describe('shipped rotations by game', () => {
       []
     )
     expect(genshinUnits.filter((u) => u.name !== 'Loop').length).toBeGreaterThan(0)
+  })
+
+  // A rose forte chip and an orange heavy chip must never both read "Forte Skill".
+  it('no wuwa chip but forte is labelled Forte Skill', () => {
+    const title = GAMES.wuwa?.chips.forte?.title
+    expect(title).toBe('Forte Skill')
+    const wuwaChips = games
+      .filter((g) => g.id === 'wuwa')
+      .flatMap((g) => g.teams.flatMap((t) => t.variants.flatMap((v) => v.units)))
+      .flatMap((u) => u.steps.flat())
+      .filter((item): item is Chip => 'type' in item)
+    expect(wuwaChips.filter((c) => c.label === title && c.type !== 'forte')).toEqual([])
+    expect(wuwaChips.length).toBeGreaterThan(0)
   })
 
   it('the Loop card has no element', () => {

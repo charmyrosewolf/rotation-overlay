@@ -36,11 +36,10 @@ export function rotationSchemaFor(folder: string, game: GameDef): z.ZodType<Rota
       label: z.string(),
       key: z.string().optional()
     })
-    // the chip's own key wins; a type with no default stays keyless
-    .transform((c): Chip => {
-      const key = c.key ?? game.chips[c.type]?.key
-      return key === undefined ? c : { ...c, key }
-    })
+    // the legend shows the default, so a step keeps only a key that differs from it
+    .transform(
+      (c): Chip => (c.key === game.chips[c.type]?.key ? { type: c.type, label: c.label } : c)
+    )
 
   // Told apart by the `note` key. A plain z.union would report "Invalid input" on the whole item
   // instead of the failing field inside the chip or note that was meant.

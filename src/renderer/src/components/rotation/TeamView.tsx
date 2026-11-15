@@ -9,13 +9,12 @@ type Props = {
   team: Team
   variant: Variant
   onSelectVariant(id: string): void
-  showKeys: boolean
 }
 
-type UnitsProps = { variant: Variant; showKeys: boolean }
+type UnitsProps = { variant: Variant }
 
 // Holds the mark. TeamView keys it on team + variant, so a switch remounts it unmarked.
-function Units({ variant, showKeys }: UnitsProps) {
+function Units({ variant }: UnitsProps) {
   const [marked, setMarked] = useState<number | null>(null)
   return (
     <>
@@ -23,7 +22,6 @@ function Units({ variant, showKeys }: UnitsProps) {
         <UnitCard
           key={i}
           unit={unit}
-          showKeys={showKeys}
           marked={marked === i}
           onClick={() => setMarked(i)}
         />
@@ -32,14 +30,14 @@ function Units({ variant, showKeys }: UnitsProps) {
   )
 }
 
-export function TeamView({ team, variant, onSelectVariant, showKeys }: Props) {
+export function TeamView({ team, variant, onSelectVariant }: Props) {
   return (
     <div>
       {/* nothing to switch between with one variant */}
       {team.variants.length > 1 && (
         <Tabs items={team.variants} activeId={variant.id} onSelect={onSelectVariant} />
       )}
-      <Units key={JSON.stringify([team.id, variant.id])} variant={variant} showKeys={showKeys} />
+      <Units key={JSON.stringify([team.id, variant.id])} variant={variant} />
       {variant.tips?.length ? <Tips tips={variant.tips} /> : null}
     </div>
   )

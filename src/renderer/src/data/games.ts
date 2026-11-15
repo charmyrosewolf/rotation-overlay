@@ -3,7 +3,7 @@
 export const ELEMENTS = ['anemo', 'geo', 'electro', 'dendro', 'hydro', 'pyro', 'cryo'] as const
 export type Element = (typeof ELEMENTS)[number]
 
-// `key` is the default shown when a chip carries none of its own.
+// `key` is the type's default; the legend shows it, a step chip only a key that differs.
 export type ChipDef = { label: string; title: string; key?: string }
 export type GameDef = { name: string; chips: Record<string, ChipDef>; elements: boolean }
 
@@ -27,13 +27,14 @@ const games = {
     name: 'Wuthering Waves',
     elements: false,
     chips: {
-      basic: { label: 'Basic', title: 'Basic Attack' },
-      skill: { label: 'Skill', title: 'Resonance Skill' },
-      echo: { label: 'Echo', title: 'Echo Skill' },
-      lib: { label: 'Lib', title: 'Resonance Liberation' },
-      heavy: { label: 'Heavy/Forte', title: 'Heavy Attack / Forte' },
-      io: { label: 'Intro/Outro', title: 'Intro / Outro Skill' },
-      move: { label: 'Move', title: 'Dodge / Jump' }
+      basic: { label: 'Basic', title: 'Basic Attack', key: 'LMB' },
+      skill: { label: 'Skill', title: 'Resonance Skill', key: 'E' },
+      echo: { label: 'Echo', title: 'Echo Skill', key: 'Q' },
+      lib: { label: 'Lib', title: 'Resonance Liberation', key: 'R' },
+      heavy: { label: 'Heavy', title: 'Heavy Attack', key: 'hold LMB' },
+      forte: { label: 'Forte', title: 'Forte Skill', key: 'E' },
+      io: { label: 'Intro/Outro', title: 'Intro / Outro Skill', key: 'auto' },
+      move: { label: 'Move', title: 'Dodge / Jump', key: 'Shift · Space' }
     }
   }
 } satisfies Record<string, GameDef>

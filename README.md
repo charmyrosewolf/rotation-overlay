@@ -1,10 +1,10 @@
 # rotation-overlay
 
 A small always-on-top window that shows combat rotations next to the game: a picker (games, then
-teams), coloured chips per action, optional key labels, a collapse-to-bar button and two opacity
-sliders. Rotations are plain JSON files under `rotations/`, read at runtime, so editing one
-updates the open window without a rebuild. Electron + electron-vite + React, styled with Vanilla
-Extract and one theme, `src/renderer/src/styles/theme.css.ts`.
+teams), coloured chips per action, a legend with each action's key, a collapse-to-bar button and
+two opacity sliders. Rotations are plain JSON files under `rotations/`, read at runtime, so
+editing one updates the open window without a rebuild. Electron + electron-vite + React, styled
+with Vanilla Extract and one theme, `src/renderer/src/styles/theme.css.ts`.
 
 ![The overlay over Wuthering Waves, showing the Augusta · Iuno team's rotation](assets/screenshot.webp)
 
@@ -45,8 +45,8 @@ filename is the members; neither is repeated inside the file.
           "name": "Chisa — opener",
           "summary": "cut, ult",
           "steps": [
-            [{ "type": "skill", "label": "Cut", "key": "E" }, { "note": "wait for the mark" }],
-            [{ "type": "lib", "label": "Ult", "key": "R" }]
+            [{ "type": "skill", "label": "Cut", "key": "hold E" }, { "note": "wait for the mark" }],
+            [{ "type": "lib", "label": "Ult" }]
           ],
           "note": "repeat from Rebecca"
         }
@@ -63,13 +63,14 @@ filename is the members; neither is repeated inside the file.
 
   | game | type | legend label | default key |
   |---|---|---|---|
-  | `wuwa` | `basic` | Basic | none |
-  | `wuwa` | `skill` | Skill | none |
-  | `wuwa` | `echo` | Echo | none |
-  | `wuwa` | `lib` | Lib | none |
-  | `wuwa` | `heavy` | Heavy/Forte | none |
-  | `wuwa` | `io` | Intro/Outro | none |
-  | `wuwa` | `move` | Move | none |
+  | `wuwa` | `basic` | Basic | LMB |
+  | `wuwa` | `skill` | Skill | E |
+  | `wuwa` | `echo` | Echo | Q |
+  | `wuwa` | `lib` | Lib | R |
+  | `wuwa` | `heavy` | Heavy | hold LMB |
+  | `wuwa` | `forte` | Forte | E |
+  | `wuwa` | `io` | Intro/Outro | auto |
+  | `wuwa` | `move` | Move | Shift · Space |
   | `genshin` | `normal` | Normal | LMB |
   | `genshin` | `charged` | Charged | hold LMB |
   | `genshin` | `plunge` | Plunge | LMB (airborne) |
@@ -78,10 +79,10 @@ filename is the members; neither is repeated inside the file.
   | `genshin` | `swap` | Swap | none |
   | `genshin` | `move` | Move | none |
 
-- `key` is shown when the *keys* box is ticked. A chip's own `key` overrides the default, and a
-  type with no default shows none, so a Genshin skill needs a `key` only when it isn't `E`. For
-  something like "hold E", write it on the chip as `"key": "hold E"`. The legend always shows
-  each type's default key above its label, ticked or not.
+- The legend shows each type's default key beside its label. A step chip shows a `key` only when
+  it differs from that default and adds something the label and colour don't already say
+  (`"hold E"`); writing the default is allowed and shows nothing. Genshin `swap` and `move` have
+  no default: the rotation's order already says who is next.
 - Genshin units may carry an `element` (`anemo`, `geo`, `electro`, `dendro`, `hydro`, `pyro` or
   `cryo`), which tints the unit's card. It is an error in any other game's file.
 - A step is one numbered row of chips and `{ "note": … }` items.

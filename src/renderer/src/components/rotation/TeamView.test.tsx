@@ -42,7 +42,6 @@ const props = (over: Partial<Props> = {}): Props => ({
   team,
   variant: standard,
   onSelectVariant: () => {},
-  showKeys: false,
   ...over
 })
 
@@ -118,12 +117,10 @@ describe('TeamView tips', () => {
   })
 })
 
-describe('TeamView showKeys', () => {
-  it('passes showKeys down to the chips', () => {
-    const { rerender } = render(<TeamView {...props({ showKeys: true })} />)
+describe('TeamView keys', () => {
+  it("shows each chip's own key", () => {
+    render(<TeamView {...props()} />)
     expect(screen.getAllByText('E')).toHaveLength(3)
-    rerender(<TeamView {...props({ showKeys: false })} />)
-    expect(screen.queryByText('E')).not.toBeInTheDocument()
   })
 })
 

@@ -15,6 +15,7 @@ export const vars = createGlobalThemeContract({
     echo: 'echo',
     lib: 'lib',
     heavy: 'heavy',
+    forte: 'forte',
     io: 'io',
     move: 'move',
     normal: 'normal',
@@ -57,6 +58,7 @@ createGlobalTheme(':root', vars, {
     echo: '#8a4fd6',
     lib: '#c99a1e',
     heavy: '#d6662f',
+    forte: '#c2416b',
     io: '#2e9e6a',
     move: '#3a7d8c',
     // Genshin chips; its skill and move reuse the two above

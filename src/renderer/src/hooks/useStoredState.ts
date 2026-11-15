@@ -3,7 +3,6 @@ import { useCallback, useState } from 'react'
 type Guard<T> = (v: unknown) => v is T
 
 export const isString: Guard<string> = (v) => typeof v === 'string'
-export const isBoolean: Guard<boolean> = (v) => typeof v === 'boolean'
 // an array is an object too, and JSON.parse gives no other kind of object
 export const isStringRecord: Guard<Record<string, string>> = (v): v is Record<string, string> =>
   typeof v === 'object' &&

@@ -1,6 +1,8 @@
 import { act, renderHook } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { isBoolean, isString, isStringRecord, useStoredState } from './useStoredState'
+import { isString, isStringRecord, useStoredState } from './useStoredState'
+
+const isBoolean = (v: unknown): v is boolean => typeof v === 'boolean'
 
 type Opacity = { bg: number; on: boolean }
 const isOpacity = (v: unknown): v is Opacity =>

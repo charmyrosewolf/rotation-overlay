@@ -13,7 +13,7 @@
           "summary": "E, Q",
           "steps": [
             [
-              { "type": "swap", "label": "Swap", "key": "3" },
+              { "type": "swap", "label": "Swap" },
               { "type": "skill", "label": "Skill" },
               { "type": "burst", "label": "Burst" }
             ]
@@ -26,7 +26,7 @@
           "summary": "E shield before Skirk's Q",
           "steps": [
             [
-              { "type": "swap", "label": "Swap", "key": "4" },
+              { "type": "swap", "label": "Swap" },
               { "type": "skill", "label": "Skill" },
               { "note": "shield up for Calamity of Eshu" }
             ]
@@ -39,7 +39,7 @@
           "summary": "E, Q",
           "steps": [
             [
-              { "type": "swap", "label": "Swap", "key": "2" },
+              { "type": "swap", "label": "Swap" },
               { "type": "skill", "label": "Skill" },
               { "type": "burst", "label": "Burst" }
             ]
@@ -52,12 +52,12 @@
           "summary": "tap E, Q, NAs till Serpent's Subtlety ends",
           "steps": [
             [
-              { "type": "swap", "label": "Swap", "key": "1" },
+              { "type": "swap", "label": "Swap" },
               { "type": "skill", "label": "tap Skill" },
               { "type": "burst", "label": "Burst" }
             ],
             [
-              { "type": "normal", "label": "Normal Attacks", "key": "LMB spam" },
+              { "type": "normal", "label": "spam Normal" },
               { "note": "till Serpent's Subtlety runs out" }
             ]
           ]
@@ -68,9 +68,9 @@
           "summary": "Furina E, Escoffier E, Skirk E (+Q)",
           "steps": [
             [
-              { "type": "skill", "label": "Furina E", "key": "3 → E" },
-              { "type": "skill", "label": "Escoffier E", "key": "2 → E" },
-              { "type": "skill", "label": "Skirk E", "key": "1 → E" }
+              { "type": "skill", "label": "Furina E" },
+              { "type": "skill", "label": "Escoffier E" },
+              { "type": "skill", "label": "Skirk E" }
             ],
             [
               { "type": "burst", "label": "Skirk Burst" },

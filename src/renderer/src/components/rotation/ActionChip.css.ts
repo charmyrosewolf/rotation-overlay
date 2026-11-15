@@ -11,6 +11,7 @@ const type = {
   echo: { background: vars.chip.echo },
   lib: { background: vars.chip.lib, color: vars.chipInk },
   heavy: { background: vars.chip.heavy },
+  forte: { background: vars.chip.forte },
   io: { background: vars.chip.io },
   move: { background: vars.chip.move },
   normal: { background: vars.chip.normal },
@@ -30,16 +31,7 @@ export const chip = recipe({
   },
   variants: {
     type,
-    small: { true: { fontWeight: 500, fontSize: 11 } },
-    // key above label; flex-end so labels line up whether or not a chip has a key
-    stacked: {
-      true: {
-        display: 'inline-flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'flex-end'
-      }
-    }
+    small: { true: { fontWeight: 500, fontSize: 11 } }
   }
 })
 
@@ -51,5 +43,3 @@ export const key = style({
   color: vars.badgeInk,
   font: '600 11px/1.4 ui-monospace, Consolas, monospace'
 })
-
-export const keyTop = style([key, { marginLeft: 0, marginBottom: 1, fontSize: 10 }])

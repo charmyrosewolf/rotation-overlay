@@ -6,43 +6,51 @@ import { Legend } from './Legend'
 
 const variant = chipStyle.classNames.variants
 const chipsOf = (container: HTMLElement) => Array.from(container.firstElementChild?.children ?? [])
-const labelsOf = (container: HTMLElement) => chipsOf(container).map((c) => c.lastChild?.textContent)
+const labelsOf = (container: HTMLElement) =>
+  chipsOf(container).map((c) => c.firstChild?.textContent)
+// the badge, if any, is the chip's only element and comes after the label
+const badgesOf = (container: HTMLElement) =>
+  chipsOf(container).map((c) => (c.lastChild === c.lastElementChild ? c.lastElementChild : null))
 
 describe('Legend', () => {
-  it('lists the seven chip labels in order', () => {
+  it('lists the eight chip labels in order', () => {
     const { container } = render(<Legend game="wuwa" />)
     expect(labelsOf(container)).toEqual([
-      'Basic', 'Skill', 'Echo', 'Lib', 'Heavy/Forte', 'Intro/Outro', 'Move'
+      'Basic', 'Skill', 'Echo', 'Lib', 'Heavy', 'Forte', 'Intro/Outro', 'Move'
     ])
   })
 
   it('colours each label by its own type', () => {
     const { container } = render(<Legend game="wuwa" />)
     const chips = chipsOf(container)
-    const types: ChipType[] = ['basic', 'skill', 'echo', 'lib', 'heavy', 'io', 'move']
+    const types: ChipType[] = ['basic', 'skill', 'echo', 'lib', 'heavy', 'forte', 'io', 'move']
     types.forEach((t, i) => expect(chips[i]).toHaveClass(variant.type[t]))
   })
 
   it('draws every chip small', () => {
     const { container } = render(<Legend game="wuwa" />)
     const chips = chipsOf(container)
-    expect(chips).toHaveLength(7)
+    expect(chips).toHaveLength(8)
     chips.forEach((c) => expect(c).toHaveClass(variant.small.true))
   })
 
-  it('puts each Genshin default key above its label', () => {
+  it('puts each Genshin default key right of its label', () => {
     const { container } = render(<Legend game="genshin" />)
-    const chips = chipsOf(container)
-    expect(chips.map((c) => c.firstElementChild?.textContent ?? null)).toEqual([
+    expect(badgesOf(container).map((b) => b?.textContent ?? null)).toEqual([
       'LMB', 'hold LMB', 'LMB (airborne)', 'E', 'Q', null, null
     ])
-    chips.slice(0, 5).forEach((c) => expect(c.firstChild).toBe(c.firstElementChild))
-    chips.forEach((c) => expect(c).toHaveClass(variant.stacked.true))
   })
 
-  it('draws no key badge on a chip with no default key', () => {
+  it('puts each WuWa default key right of its label', () => {
     const { container } = render(<Legend game="wuwa" />)
-    chipsOf(container).forEach((c) => expect(c.childElementCount).toBe(0))
+    expect(badgesOf(container).map((b) => b?.textContent ?? null)).toEqual([
+      'LMB', 'E', 'Q', 'R', 'hold LMB', 'E', 'auto', 'Shift · Space'
+    ])
+  })
+
+  it('draws no key badge on Genshin swap or move', () => {
+    const { container } = render(<Legend game="genshin" />)
+    chipsOf(container).slice(5).forEach((c) => expect(c.childElementCount).toBe(0))
   })
 
   it('titles a WuWa chip with its full name', () => {

@@ -6,41 +6,35 @@ import { chip as chipStyle } from './ActionChip.css'
 const variant = chipStyle.classNames.variants
 
 describe('ActionChip', () => {
-  it('shows the label, and the key when showKeys is on', () => {
-    render(<ActionChip chip={{ type: 'skill', label: 'Skill', key: 'E' }} showKeys />)
+  it('shows the label and its key', () => {
+    render(<ActionChip chip={{ type: 'skill', label: 'Skill', key: 'hold E' }} />)
     expect(screen.getByText('Skill')).toBeInTheDocument()
-    expect(screen.getByText('E')).toBeInTheDocument()
+    expect(screen.getByText('hold E')).toBeInTheDocument()
   })
 
-  it('keeps the key out of the DOM when showKeys is off', () => {
-    render(<ActionChip chip={{ type: 'skill', label: 'Skill', key: 'E' }} showKeys={false} />)
-    expect(screen.getByText('Skill')).toBeInTheDocument()
-    expect(screen.queryByText('E')).not.toBeInTheDocument()
-  })
-
-  it('draws no badge for a chip without a key, even with showKeys on', () => {
-    render(<ActionChip chip={{ type: 'move', label: 'Dash' }} showKeys />)
+  it('draws no badge for a chip without a key', () => {
+    render(<ActionChip chip={{ type: 'move', label: 'Dash' }} />)
     expect(screen.getByText('Dash').childElementCount).toBe(0)
   })
 
   it('carries a class named for its type', () => {
-    render(<ActionChip chip={{ type: 'heavy', label: 'Forte' }} showKeys={false} />)
+    render(<ActionChip chip={{ type: 'heavy', label: 'Forte' }} />)
     expect(screen.getByText('Forte')).toHaveClass(variant.type.heavy)
   })
 
   it.each(['normal', 'charged', 'plunge', 'burst', 'swap'] as const)(
     'carries a class named for the Genshin type %s',
     (type) => {
-      render(<ActionChip chip={{ type, label: 'X' }} showKeys={false} />)
+      render(<ActionChip chip={{ type, label: 'X' }} />)
       expect(screen.getByText('X')).toHaveClass(variant.type[type])
     }
   )
 
   it('carries the small class when small is set, and only then', () => {
     const chip = { type: 'basic', label: 'Basic' } as const
-    const { rerender } = render(<ActionChip chip={chip} showKeys={false} small />)
+    const { rerender } = render(<ActionChip chip={chip} small />)
     expect(screen.getByText('Basic')).toHaveClass(variant.small.true)
-    rerender(<ActionChip chip={chip} showKeys={false} />)
+    rerender(<ActionChip chip={chip} />)
     expect(screen.getByText('Basic')).not.toHaveClass(variant.small.true)
   })
 })

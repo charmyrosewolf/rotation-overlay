@@ -11,9 +11,7 @@ export function Legend({ game }: { game: string }) {
           key={type}
           chip={{ type, label: def.label, key: def.key }}
           title={def.title}
-          showKeys
           small
-          keyOnTop
         />
       ))}
     </div>

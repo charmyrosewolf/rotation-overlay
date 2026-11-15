@@ -12,7 +12,7 @@ const unit: Unit = {
   name: 'Chisa — opener',
   summary: 'cut, ult, snip, forte',
   steps: [
-    [{ type: 'skill', label: 'Skill', key: 'E' }],
+    [{ type: 'skill', label: 'Skill' }],
     [{ type: 'heavy', label: 'Forte' }, { note: 'then' }, { type: 'basic', label: 'Basic' }],
     [{ type: 'lib', label: 'Liberation' }]
   ],
@@ -24,7 +24,6 @@ const bare: Unit = { icon: '🍃', name: 'Denia', steps: [[{ type: 'move', label
 type Props = Parameters<typeof UnitCard>[0]
 const props = (over: Partial<Props> = {}): Props => ({
   unit,
-  showKeys: false,
   marked: false,
   onClick: () => {},
   ...over
@@ -111,10 +110,8 @@ describe('UnitCard', () => {
     expect(onClick).toHaveBeenCalledTimes(2)
   })
 
-  it('passes showKeys down to the chips', () => {
-    const { rerender } = mount({ showKeys: true })
-    expect(screen.getByText('E')).toBeInTheDocument()
-    rerender(<UnitCard {...props({ showKeys: false })} />)
-    expect(screen.queryByText('E')).not.toBeInTheDocument()
+  it("shows a chip's own key", () => {
+    mount({ unit: { ...bare, steps: [[{ type: 'skill', label: 'Skill', key: 'hold E' }]] } })
+    expect(screen.getByText('hold E')).toBeInTheDocument()
   })
 })

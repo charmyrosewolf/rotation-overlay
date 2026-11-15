@@ -12,7 +12,7 @@
           "summary": "tap ×4, skill, heavy, ult",
           "steps": [
             [
-              { "type": "basic", "label": "B1-2-3-4", "key": "LMB×4" },
+              { "type": "basic", "label": "B1-2-3-4" },
               { "note": "cancel 4th" },
               { "type": "skill", "label": "Skill", "key": "E" }
             ],
@@ -26,7 +26,7 @@
               { "note": "cancels 2nd Forte" },
               { "type": "echo", "label": "Echo", "key": "Q" },
               { "type": "lib", "label": "Lib", "key": "R" },
-              { "type": "io", "label": "Outro", "key": "2" }
+              { "type": "io", "label": "Outro" }
             ]
           ]
         },
@@ -36,18 +36,18 @@
           "summary": "skill ×2, tap ×4, skill, ult",
           "steps": [
             [
-              { "type": "io", "label": "Intro", "key": "auto" },
+              { "type": "io", "label": "Intro" },
               { "type": "skill", "label": "Skill", "key": "E" },
-              { "type": "heavy", "label": "Forte Skill", "key": "E" }
+              { "type": "forte", "label": "Forte Skill" }
             ],
             [
-              { "type": "basic", "label": "B1-2-3-4", "key": "LMB×4" },
-              { "type": "heavy", "label": "Forte Skill", "key": "E" }
+              { "type": "basic", "label": "B1-2-3-4" },
+              { "type": "forte", "label": "Forte Skill" }
             ],
             [
               { "type": "lib", "label": "Lib", "key": "R" },
               { "type": "echo", "label": "Echo", "key": "Q" },
-              { "type": "io", "label": "Outro", "key": "3" },
+              { "type": "io", "label": "Outro" },
               { "note": "straight into Augusta" }
             ]
           ]
@@ -58,7 +58,7 @@
           "summary": "heavy-skill-heavy, oath, sunborne ×9",
           "steps": [
             [
-              { "type": "io", "label": "Intro", "key": "auto" },
+              { "type": "io", "label": "Intro" },
               { "type": "heavy", "label": "Heavy", "key": "hold LMB" },
               { "type": "skill", "label": "Skill", "key": "E" },
               { "type": "heavy", "label": "Heavy", "key": "hold LMB" }
@@ -73,7 +73,7 @@
             ],
             [
               { "type": "echo", "label": "Echo", "key": "Q" },
-              { "type": "io", "label": "Outro", "key": "1" }
+              { "type": "io", "label": "Outro" }
             ]
           ]
         }

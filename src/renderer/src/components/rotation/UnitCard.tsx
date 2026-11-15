@@ -4,9 +4,9 @@ import { Note } from './Note'
 import { StepRow } from './StepRow'
 import * as styles from './UnitCard.css'
 
-type Props = { unit: Unit; showKeys: boolean; marked: boolean; onClick: () => void }
+type Props = { unit: Unit; marked: boolean; onClick: () => void }
 
-export function UnitCard({ unit, showKeys, marked, onClick }: Props) {
+export function UnitCard({ unit, marked, onClick }: Props) {
   const cls = cx(styles.card, marked && styles.marked, unit.element && styles.edge[unit.element])
   return (
     <section className={cls} onClick={onClick}>
@@ -18,7 +18,7 @@ export function UnitCard({ unit, showKeys, marked, onClick }: Props) {
       </h2>
       <ul className={styles.rows}>
         {unit.steps.map((step, i) => (
-          <StepRow key={i} step={step} n={i + 1} showKeys={showKeys} />
+          <StepRow key={i} step={step} n={i + 1} />
         ))}
       </ul>
       {unit.note ? <Note text={unit.note} block /> : null}

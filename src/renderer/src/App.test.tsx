@@ -103,13 +103,13 @@ describe('App launch', () => {
     expect(unitNames()).toEqual(['🌀 B1'])
   })
 
-  // the picker lists the same error, so the keys toggle tells the two screens apart
+  // the picker lists the same error, so the back button tells the two screens apart
   it("opens a stored team whose file is broken on that file's error, with no legend", async () => {
     store('lastTeam', 'wuwa/beta')
     stubOverlay([alpha, broken('wuwa/beta.json')])
     await mountApp()
     expect(screen.getByText('wuwa/beta.json')).toBeInTheDocument()
-    expect(screen.getByRole('checkbox', { name: 'keys' })).toBeInTheDocument()
+    expect(back()).toBeInTheDocument()
     expect(screen.queryByTitle('Basic Attack')).not.toBeInTheDocument()
   })
 
@@ -215,24 +215,49 @@ describe('App pushes', () => {
 })
 
 describe('App keys', () => {
-  it('stores the keys toggle as showKeys', async () => {
-    store('lastTeam', 'wuwa/alpha')
-    stubOverlay([alpha])
-    await mountApp()
-    expect(screen.queryByText('E')).not.toBeInTheDocument()
-    await userEvent.click(screen.getByRole('checkbox', { name: 'keys' }))
-    expect(screen.getByText('E')).toBeInTheDocument()
-    expect(localStorage.getItem('showKeys')).toBe('true')
+  const card = (unit: string) =>
+    screen.getByRole('heading', { name: `🌀 ${unit}` }).closest('section') as HTMLElement
+  const keyed = rotation('wuwa', 'keyed', {
+    label: 'Keyed',
+    variants: [
+      {
+        id: 'standard',
+        label: 'Standard',
+        units: [
+          {
+            icon: '🌀',
+            name: 'K1',
+            steps: [[{ type: 'skill', label: 'Skill', key: 'E' }], [{ type: 'lib', label: 'Lib' }]]
+          },
+          { icon: '🌀', name: 'K2', steps: [[{ type: 'skill', label: 'Skill', key: 'hold E' }]] }
+        ]
+      }
+    ]
   })
 
-  // truthy, so it would show the keys if it were taken as the boolean it is not
-  it('hides the keys when the stored showKeys is not a boolean', async () => {
-    store('lastTeam', 'wuwa/alpha')
-    store('showKeys', 'yes')
-    stubOverlay([alpha])
+  it("shows the game's default keys in the legend", async () => {
+    store('lastTeam', 'wuwa/keyed')
+    stubOverlay([keyed])
     await mountApp()
-    expect(screen.getByRole('checkbox', { name: 'keys' })).not.toBeChecked()
-    expect(screen.queryByText('E')).not.toBeInTheDocument()
+    expect(within(screen.getByTitle('Resonance Skill')).getByText('E')).toBeInTheDocument()
+    expect(within(screen.getByTitle('Resonance Liberation')).getByText('R')).toBeInTheDocument()
+  })
+
+  // the legend's E is the only one: the step that wrote E shows none
+  it('shows a step key only when it differs from the default', async () => {
+    store('lastTeam', 'wuwa/keyed')
+    stubOverlay([keyed])
+    await mountApp()
+    expect(within(card('K2')).getByText('hold E')).toBeInTheDocument()
+    expect(within(card('K1')).queryByText('E')).not.toBeInTheDocument()
+    expect(within(card('K1')).queryByText('R')).not.toBeInTheDocument()
+  })
+
+  it('has no keys checkbox', async () => {
+    store('lastTeam', 'wuwa/keyed')
+    stubOverlay([keyed])
+    await mountApp()
+    expect(screen.queryByRole('checkbox', { name: 'keys' })).not.toBeInTheDocument()
   })
 })
 

@@ -11,7 +11,10 @@ const unit = (over: object = {}) => ({
   icon: '🌀',
   name: 'Chisa — opener',
   summary: 'cut, ult',
-  steps: [[chip('basic', 'Basic', 'LMB'), { note: 'cancel' }], [chip('skill', 'Skill', 'E')]],
+  steps: [
+    [chip('basic', 'Basic', 'LMB×3'), { note: 'cancel' }],
+    [chip('skill', 'Skill', 'hold E')]
+  ],
   ...over
 })
 const variant = (id = 'std', over: object = {}) => ({
@@ -82,7 +85,7 @@ describe('loadRotations', () => {
     expect(r.errors[0]!.file).toBe('wuwa/bad.json')
     expect(r.errors[0]!.message).toMatch(/^variants\.0\.units\.0\.steps\.0\.0\.type: /)
     expect(r.errors[0]!.message).toMatch(
-      /ult is not a wuwa chip \(allowed: basic, skill, echo, lib, heavy, io, move\)/
+      /ult is not a wuwa chip \(allowed: basic, skill, echo, lib, heavy, forte, io, move\)/
     )
     expect(ids(r)).toEqual(['wuwa/good'])
   })
@@ -95,6 +98,27 @@ describe('loadRotations', () => {
     expect(r.errors[0]!.message).toMatch(
       /lib is not a genshin chip \(allowed: normal, charged, plunge, skill, burst, swap, move\)/
     )
+    expect(ids(r)).toEqual(['genshin/good'])
+  })
+
+  it('accepts a forte chip in a wuwa file', () => {
+    const r = loadRotations([raw('wuwa/forte.json', withSteps([[chip('forte', 'Forte Skill')]]))])
+    expect(r.errors).toEqual([])
+    expect(ids(r)).toEqual(['wuwa/forte'])
+  })
+
+  it('drops a forte key equal to its default', () => {
+    const steps = [[chip('forte', 'Forte Skill', 'E')]]
+    const r = loadRotations([raw('wuwa/forte.json', withSteps(steps))])
+    expect(r.errors).toEqual([])
+    expect(keys(r)).toEqual([undefined])
+  })
+
+  it('rejects forte in a genshin file', () => {
+    const bad = gWithSteps([[chip('forte', 'Forte Skill')]])
+    const r = loadRotations([raw('genshin/bad.json', bad), raw('genshin/good.json', gRotation())])
+    expect(r.errors).toHaveLength(1)
+    expect(r.errors[0]!.message).toMatch(/forte is not a genshin chip/)
     expect(ids(r)).toEqual(['genshin/good'])
   })
 
@@ -134,25 +158,34 @@ describe('loadRotations', () => {
     expect(firstUnit(r).element).toBe('cryo')
   })
 
-  it("fills a chip's default key, and keeps a key the chip gives", () => {
+  it("keeps a Genshin chip's key only when it differs from its type's default", () => {
     const steps = [
-      [chip('skill', 'Skill'), chip('burst', 'Burst'), chip('normal', 'Normal')],
-      [chip('skill', 'Skill', 'hold E')]
+      [chip('skill', 'Skill'), chip('burst', 'Burst', 'Q'), chip('normal', 'Normal', 'LMB')],
+      [chip('skill', 'Skill', 'hold E'), chip('swap', 'Swap', '1 → E')]
     ]
     const r = loadRotations([raw('genshin/keys.json', gWithSteps(steps))])
     expect(r.errors).toEqual([])
-    expect(keys(r)).toEqual(['E', 'Q', 'LMB', 'hold E'])
+    expect(keys(r)).toEqual([undefined, undefined, undefined, 'hold E', '1 → E'])
   })
 
-  // WuWa `skill` shares a name with Genshin's, which has a default; WuWa's has none.
+  it("keeps a WuWa chip's key only when it differs from its type's default", () => {
+    const steps = [
+      [chip('skill', 'Skill', 'E'), chip('lib', 'Lib', 'hold R'), chip('io', 'Intro', 'auto')],
+      [chip('basic', 'Basic', 'LMB×3'), chip('heavy', 'Heavy', 'hold LMB'), chip('echo', 'E', 'Q')],
+      [chip('io', 'Outro', 'swap early')]
+    ]
+    const r = loadRotations([raw('wuwa/keys.json', withSteps(steps))])
+    expect(r.errors).toEqual([])
+    expect(keys(r)).toEqual([
+      undefined, 'hold R', undefined, 'LMB×3', undefined, undefined, 'swap early'
+    ])
+  })
+
   it('leaves swap and move keyless', () => {
     const genshin = gWithSteps([[chip('swap', 'Swap'), chip('move', 'Drift')]])
-    const wuwa = withSteps([[chip('skill', 'Skill')]])
     const g = loadRotations([raw('genshin/keyless.json', genshin)])
-    const w = loadRotations([raw('wuwa/keyless.json', wuwa)])
-    expect([g.errors, w.errors]).toEqual([[], []])
+    expect(g.errors).toEqual([])
     expect(keys(g)).toEqual([undefined, undefined])
-    expect(keys(w)).toEqual([undefined])
   })
 
   it('joins deeper zod paths with dots', () => {

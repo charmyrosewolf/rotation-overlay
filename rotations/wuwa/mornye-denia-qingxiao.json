@@ -12,11 +12,11 @@
           "summary": "tap ×3, heavy, tap ×3, ult, skill",
           "steps": [
             [
-              { "type": "basic", "label": "B1-2-3", "key": "LMB×3" },
+              { "type": "basic", "label": "B1-2-3" },
               { "type": "heavy", "label": "Heavy", "key": "hold LMB" }
             ],
             [
-              { "type": "basic", "label": "B1-2-3", "key": "LMB×3" },
+              { "type": "basic", "label": "B1-2-3" },
               { "note": "cancel" },
               { "type": "lib", "label": "Lib", "key": "R" }
             ],
@@ -28,7 +28,7 @@
             ],
             [
               { "type": "echo", "label": "Echo", "key": "Q" },
-              { "type": "io", "label": "Outro", "key": "2" }
+              { "type": "io", "label": "Outro" }
             ]
           ]
         },
@@ -38,15 +38,15 @@
           "summary": "B4, skill, ult · dodge · skill ×2, ult",
           "steps": [
             [
-              { "type": "io", "label": "Intro", "key": "auto" },
+              { "type": "io", "label": "Intro" },
               { "type": "basic", "label": "B4", "key": "LMB" },
               { "type": "skill", "label": "Skill", "key": "E" },
               { "type": "lib", "label": "Lib", "key": "R" }
             ],
             [
-              { "type": "basic", "label": "B1-2", "key": "LMB×2" },
+              { "type": "basic", "label": "B1-2" },
               { "type": "move", "label": "Dodge" },
-              { "type": "basic", "label": "B1-2", "key": "LMB×2" }
+              { "type": "basic", "label": "B1-2" }
             ],
             [
               { "type": "skill", "label": "Skill", "key": "E" },
@@ -55,7 +55,7 @@
             ],
             [
               { "type": "echo", "label": "Echo", "key": "Q" },
-              { "type": "io", "label": "Outro", "key": "3" }
+              { "type": "io", "label": "Outro" }
             ]
           ]
         },
@@ -65,23 +65,23 @@
           "summary": "air 1-2-3, ground 1-2, tune, forte",
           "steps": [
             [
-              { "type": "io", "label": "Intro", "key": "auto" },
-              { "type": "basic", "label": "air B1-2-3", "key": "LMB×3" },
-              { "type": "basic", "label": "ground B1-2", "key": "LMB×2" }
+              { "type": "io", "label": "Intro" },
+              { "type": "basic", "label": "air B1-2-3" },
+              { "type": "basic", "label": "ground B1-2" }
             ],
             [
               { "type": "heavy", "label": "Tune Break" },
-              { "type": "heavy", "label": "Forte Skill" },
+              { "type": "heavy", "label": "Stringblade" },
               { "type": "heavy", "label": "Heavy", "key": "hold LMB" }
             ],
             [
-              { "type": "basic", "label": "B1-2-3-4", "key": "LMB×4" },
+              { "type": "basic", "label": "B1-2-3-4" },
               { "type": "heavy", "label": "Heavy", "key": "hold LMB" }
             ],
             [
               { "type": "lib", "label": "Lib", "key": "R" },
               { "type": "echo", "label": "Echo", "key": "Q" },
-              { "type": "io", "label": "Outro", "key": "1" }
+              { "type": "io", "label": "Outro" }
             ]
           ]
         }
@@ -102,7 +102,7 @@
           "summary": "tap to full Forte, fly, skill",
           "steps": [
             [
-              { "type": "basic", "label": "B1-2-3", "key": "LMB×3" },
+              { "type": "basic", "label": "B1-2-3" },
               { "note": "till Forte full" },
               { "type": "heavy", "label": "hold → fly", "key": "hold LMB" }
             ],
@@ -117,7 +117,7 @@
             [
               { "type": "lib", "label": "Lib", "key": "R" },
               { "type": "echo", "label": "Echo", "key": "Q" },
-              { "type": "io", "label": "Outro", "key": "2" }
+              { "type": "io", "label": "Outro" }
             ]
           ]
         },
@@ -127,7 +127,7 @@
           "summary": "B1 skill, ult, combo ×2, ult",
           "steps": [
             [
-              { "type": "io", "label": "Intro", "key": "auto" },
+              { "type": "io", "label": "Intro" },
               { "type": "basic", "label": "B1", "key": "LMB" },
               { "type": "skill", "label": "Skill", "key": "E" }
             ],
@@ -135,7 +135,7 @@
               { "type": "lib", "label": "Lib 1", "key": "R" }
             ],
             [
-              { "type": "basic", "label": "B1-2-3", "key": "LMB×3" },
+              { "type": "basic", "label": "B1-2-3" },
               { "type": "skill", "label": "Skill", "key": "E" },
               { "note": "×2, either order" }
             ],
@@ -145,7 +145,7 @@
             ],
             [
               { "type": "echo", "label": "Echo", "key": "Q" },
-              { "type": "io", "label": "Outro", "key": "3" }
+              { "type": "io", "label": "Outro" }
             ]
           ]
         },
@@ -155,8 +155,8 @@
           "summary": "hold, hold, hold, ult",
           "steps": [
             [
-              { "type": "io", "label": "Intro", "key": "auto" },
-              { "type": "basic", "label": "hold attack", "key": "hold LMB" },
+              { "type": "io", "label": "Intro" },
+              { "type": "basic", "label": "hold attack" },
               { "note": "till Skill lights up the 2nd time" }
             ],
             [
@@ -170,7 +170,7 @@
             [
               { "type": "lib", "label": "Lib", "key": "R" },
               { "type": "echo", "label": "Echo", "key": "Q" },
-              { "type": "io", "label": "Outro", "key": "1" }
+              { "type": "io", "label": "Outro" }
             ]
           ],
           "note": "repeat from Mornye"
