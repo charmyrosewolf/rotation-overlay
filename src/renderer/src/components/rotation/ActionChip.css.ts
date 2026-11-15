@@ -30,7 +30,16 @@ export const chip = recipe({
   },
   variants: {
     type,
-    small: { true: { fontWeight: 500, fontSize: 11 } }
+    small: { true: { fontWeight: 500, fontSize: 11 } },
+    // key above label; flex-end so labels line up whether or not a chip has a key
+    stacked: {
+      true: {
+        display: 'inline-flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'flex-end'
+      }
+    }
   }
 })
 
@@ -42,3 +51,5 @@ export const key = style({
   color: vars.badgeInk,
   font: '600 11px/1.4 ui-monospace, Consolas, monospace'
 })
+
+export const keyTop = style([key, { marginLeft: 0, marginBottom: 1, fontSize: 10 }])

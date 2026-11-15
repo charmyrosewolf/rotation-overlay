@@ -9,10 +9,11 @@ export function Legend({ game }: { game: string }) {
       {chips.map(([type, def]) => (
         <ActionChip
           key={type}
-          chip={{ type, label: def.label }}
+          chip={{ type, label: def.label, key: def.key }}
           title={def.title}
-          showKeys={false}
+          showKeys
           small
+          keyOnTop
         />
       ))}
     </div>

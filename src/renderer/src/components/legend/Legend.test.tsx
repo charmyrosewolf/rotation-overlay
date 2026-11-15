@@ -6,11 +6,12 @@ import { Legend } from './Legend'
 
 const variant = chipStyle.classNames.variants
 const chipsOf = (container: HTMLElement) => Array.from(container.firstElementChild?.children ?? [])
+const labelsOf = (container: HTMLElement) => chipsOf(container).map((c) => c.lastChild?.textContent)
 
 describe('Legend', () => {
   it('lists the seven chip labels in order', () => {
     const { container } = render(<Legend game="wuwa" />)
-    expect(chipsOf(container).map((c) => c.textContent)).toEqual([
+    expect(labelsOf(container)).toEqual([
       'Basic', 'Skill', 'Echo', 'Lib', 'Heavy/Forte', 'Intro/Outro', 'Move'
     ])
   })
@@ -29,8 +30,18 @@ describe('Legend', () => {
     chips.forEach((c) => expect(c).toHaveClass(variant.small.true))
   })
 
-  it('draws no key badges', () => {
+  it('puts each Genshin default key above its label', () => {
     const { container } = render(<Legend game="genshin" />)
+    const chips = chipsOf(container)
+    expect(chips.map((c) => c.firstElementChild?.textContent ?? null)).toEqual([
+      'LMB', 'hold LMB', 'LMB (airborne)', 'E', 'Q', null, null
+    ])
+    chips.slice(0, 5).forEach((c) => expect(c.firstChild).toBe(c.firstElementChild))
+    chips.forEach((c) => expect(c).toHaveClass(variant.stacked.true))
+  })
+
+  it('draws no key badge on a chip with no default key', () => {
+    const { container } = render(<Legend game="wuwa" />)
     chipsOf(container).forEach((c) => expect(c.childElementCount).toBe(0))
   })
 
@@ -42,7 +53,7 @@ describe('Legend', () => {
   it('lists the seven Genshin labels in order, coloured by type', () => {
     const { container } = render(<Legend game="genshin" />)
     const chips = chipsOf(container)
-    expect(chips.map((c) => c.textContent)).toEqual([
+    expect(labelsOf(container)).toEqual([
       'Normal', 'Charged', 'Plunge', 'Skill', 'Burst', 'Swap', 'Move'
     ])
     const types: ChipType[] = ['normal', 'charged', 'plunge', 'skill', 'burst', 'swap', 'move']
@@ -64,7 +75,7 @@ describe('Legend', () => {
 
   it('shows no WuWa label in a Genshin legend', () => {
     const { container } = render(<Legend game="genshin" />)
-    const labels = chipsOf(container).map((c) => c.textContent)
+    const labels = labelsOf(container)
     expect(labels).toHaveLength(7)
     for (const wuwaOnly of ['Lib', 'Echo', 'Intro/Outro']) expect(labels).not.toContain(wuwaOnly)
   })

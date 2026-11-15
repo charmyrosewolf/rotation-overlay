@@ -80,7 +80,8 @@ filename is the members; neither is repeated inside the file.
 
 - `key` is shown when the *keys* box is ticked. A chip's own `key` overrides the default, and a
   type with no default shows none, so a Genshin skill needs a `key` only when it isn't `E`. For
-  something like "hold E", write it on the chip as `"key": "hold E"`.
+  something like "hold E", write it on the chip as `"key": "hold E"`. The legend always shows
+  each type's default key above its label, ticked or not.
 - Genshin units may carry an `element` (`anemo`, `geo`, `electro`, `dendro`, `hydro`, `pyro` or
   `cryo`), which tints the unit's card. It is an error in any other game's file.
 - A step is one numbered row of chips and `{ "note": … }` items.
