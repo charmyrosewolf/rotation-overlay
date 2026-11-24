@@ -1,0 +1,144 @@
+{
+  "label": "⚡ Varesa · Mono Electro",
+  "order": 7,
+  "variants": [
+    {
+      "id": "standard",
+      "label": "Standard",
+      "units": [
+        {
+          "icon": "🥷",
+          "name": "Kuki Shinobu",
+          "element": "electro",
+          "summary": "E, Q",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "skill",
+                "label": "Skill"
+              },
+              {
+                "type": "burst",
+                "label": "Burst"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "🦇",
+          "name": "Fischl",
+          "element": "electro",
+          "summary": "E Oz",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "skill",
+                "label": "Skill"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "🏋️",
+          "name": "Iansan",
+          "element": "electro",
+          "summary": "Q, E, N",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "burst",
+                "label": "Burst"
+              },
+              {
+                "note": "the Scale buffs whoever is on field"
+              }
+            ],
+            [
+              {
+                "type": "skill",
+                "label": "Skill"
+              },
+              {
+                "type": "normal",
+                "label": "Normal"
+              },
+              {
+                "note": "Swift Stormflight"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "🥊",
+          "name": "Varesa",
+          "element": "electro",
+          "summary": "tap E, Q, plunge, Q again, tap E",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "skill",
+                "label": "tap Skill"
+              },
+              {
+                "note": "Rainbow Crash, 5s"
+              }
+            ],
+            [
+              {
+                "type": "burst",
+                "label": "Burst"
+              },
+              {
+                "note": "Fiery Passion"
+              }
+            ],
+            [
+              {
+                "type": "plunge",
+                "label": "Plunge"
+              },
+              {
+                "note": "ground hit"
+              }
+            ],
+            [
+              {
+                "type": "burst",
+                "label": "Burst"
+              },
+              {
+                "note": "Volcano Kablam in Apex Drive"
+              }
+            ],
+            [
+              {
+                "type": "skill",
+                "label": "tap Skill"
+              }
+            ]
+          ]
+        }
+      ],
+      "tips": [
+        "Varesa: spend the Apex Q before the next E",
+        "The Scale goes **1s** after combat ends"
+      ]
+    }
+  ]
+}

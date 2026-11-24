@@ -1,0 +1,363 @@
+{
+  "label": "⚡ Mitya · Stellar-Conduct",
+  "order": 5,
+  "variants": [
+    {
+      "id": "standard",
+      "label": "Standard",
+      "units": [
+        {
+          "icon": "🧊",
+          "name": "Qiqi",
+          "element": "cryo",
+          "summary": "E",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "skill",
+                "label": "Skill"
+              },
+              {
+                "note": "Herald of Frost"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "🐺",
+          "name": "Alyosha",
+          "element": "electro",
+          "summary": "tap E, Q",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "skill",
+                "label": "tap Skill"
+              },
+              {
+                "note": "Hunter's Mark"
+              }
+            ],
+            [
+              {
+                "type": "burst",
+                "label": "Burst"
+              },
+              {
+                "note": "Hunting Field"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "🧪",
+          "name": "Mitya",
+          "element": "electro",
+          "summary": "Q",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "burst",
+                "label": "Burst"
+              },
+              {
+                "note": "3 Gradient Beacons"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "🛡️",
+          "name": "Valeriy",
+          "element": "electro",
+          "summary": "E, Q, then CA after Mitya",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "skill",
+                "label": "Skill"
+              },
+              {
+                "type": "burst",
+                "label": "Burst"
+              },
+              {
+                "note": "shells fall"
+              }
+            ]
+          ],
+          "note": "back to Mitya, then here again for the CA"
+        },
+        {
+          "icon": "🧪",
+          "name": "Mitya · Momentum",
+          "element": "electro",
+          "summary": "Electro hits under the shells",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "normal",
+                "label": "Normal"
+              },
+              {
+                "note": "+5 Momentum per Electro hit"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "🛡️",
+          "name": "Valeriy · Bombardment",
+          "element": "electro",
+          "summary": "CA at 40+ Momentum",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "charged",
+                "label": "Charged"
+              },
+              {
+                "note": "Point-Blank Bombardment"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "🧪",
+          "name": "Mitya · Detonate",
+          "element": "electro",
+          "summary": "hold E, CAs till the Beacons run out",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "skill",
+                "label": "hold Skill"
+              },
+              {
+                "note": "Overloaded"
+              }
+            ],
+            [
+              {
+                "type": "charged",
+                "label": "Charged"
+              },
+              {
+                "note": "Gradient Detonation, no stamina"
+              }
+            ]
+          ]
+        }
+      ],
+      "tips": [
+        "The **Directive** buffs the on-field character: stay on Mitya",
+        "Re-tap Mitya E only if Overloaded runs dry",
+        "Directive is **0.9% ATK** per point in Radiance, 0.3% out of it"
+      ]
+    },
+    {
+      "id": "yae",
+      "label": "Yae",
+      "units": [
+        {
+          "icon": "🧊",
+          "name": "Qiqi",
+          "element": "cryo",
+          "summary": "E",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "skill",
+                "label": "Skill"
+              },
+              {
+                "note": "Herald of Frost"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "🦊",
+          "name": "Yae Miko",
+          "element": "electro",
+          "summary": "E ×3, Q",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "skill",
+                "label": "Skill ×3"
+              },
+              {
+                "note": "Sesshou Sakura"
+              }
+            ],
+            [
+              {
+                "type": "burst",
+                "label": "Burst"
+              },
+              {
+                "note": "Tenko Thunderbolts"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "🧪",
+          "name": "Mitya",
+          "element": "electro",
+          "summary": "Q",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "burst",
+                "label": "Burst"
+              },
+              {
+                "note": "3 Gradient Beacons"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "🛡️",
+          "name": "Valeriy",
+          "element": "electro",
+          "summary": "E, Q, then CA after Mitya",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "skill",
+                "label": "Skill"
+              },
+              {
+                "type": "burst",
+                "label": "Burst"
+              },
+              {
+                "note": "shells fall"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "🧪",
+          "name": "Mitya · Momentum",
+          "element": "electro",
+          "summary": "Electro hits under the shells",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "normal",
+                "label": "Normal"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "🛡️",
+          "name": "Valeriy · Bombardment",
+          "element": "electro",
+          "summary": "CA at 40+ Momentum",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "charged",
+                "label": "Charged"
+              },
+              {
+                "note": "Point-Blank Bombardment"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "🧪",
+          "name": "Mitya · Detonate",
+          "element": "electro",
+          "summary": "hold E, CAs till the Beacons run out",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "skill",
+                "label": "hold Skill"
+              },
+              {
+                "note": "Overloaded"
+              }
+            ],
+            [
+              {
+                "type": "charged",
+                "label": "Charged"
+              },
+              {
+                "note": "Gradient Detonation"
+              }
+            ]
+          ]
+        }
+      ],
+      "tips": [
+        "Yae takes **Alyosha's seat**",
+        "Stay on Mitya under the **Directive**"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "label": "⚡ Flins · Lunar (Xingqiu)",
+  "order": 10,
+  "variants": [
+    {
+      "id": "standard",
+      "label": "Standard",
+      "units": [
+        {
+          "icon": "🌧️",
+          "name": "Xingqiu",
+          "element": "hydro",
+          "summary": "Q, E",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "burst",
+                "label": "Burst"
+              },
+              {
+                "type": "skill",
+                "label": "Skill"
+              },
+              {
+                "note": "rain swords on normals"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "🦆",
+          "name": "Aino",
+          "element": "hydro",
+          "summary": "E, Q",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "skill",
+                "label": "Skill"
+              },
+              {
+                "type": "burst",
+                "label": "Burst"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "🤖",
+          "name": "Ineffa",
+          "element": "electro",
+          "summary": "Q, E",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "burst",
+                "label": "Burst"
+              },
+              {
+                "type": "skill",
+                "label": "Skill"
+              },
+              {
+                "note": "shield"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "🏮",
+          "name": "Flins",
+          "element": "electro",
+          "summary": "E, E, Q, then attack",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "skill",
+                "label": "Skill"
+              },
+              {
+                "note": "Manifest Flame"
+              }
+            ],
+            [
+              {
+                "type": "skill",
+                "label": "Skill"
+              },
+              {
+                "note": "Northland Spearstorm"
+              }
+            ],
+            [
+              {
+                "type": "burst",
+                "label": "Burst"
+              },
+              {
+                "note": "Thunderous Symphony"
+              }
+            ],
+            [
+              {
+                "type": "normal",
+                "label": "Normal"
+              },
+              {
+                "note": "stay on Flins"
+              }
+            ]
+          ]
+        }
+      ],
+      "tips": [
+        "Flins normals while **Raincutter** is up",
+        "Only three Moonsign sources here"
+      ]
+    }
+  ]
+}

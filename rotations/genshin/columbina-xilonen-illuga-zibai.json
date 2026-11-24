@@ -1,0 +1,115 @@
+{
+  "label": "🪨 Zibai · Lunar-Crystallize",
+  "order": 11,
+  "variants": [
+    {
+      "id": "standard",
+      "label": "Standard",
+      "units": [
+        {
+          "icon": "🌊",
+          "name": "Columbina",
+          "element": "hydro",
+          "summary": "E, Q",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "skill",
+                "label": "Skill"
+              },
+              {
+                "type": "burst",
+                "label": "Burst"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "🎧",
+          "name": "Xilonen",
+          "element": "geo",
+          "summary": "E, N2",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "skill",
+                "label": "Skill"
+              },
+              {
+                "type": "normal",
+                "label": "Normal ×2"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "🐦",
+          "name": "Illuga",
+          "element": "geo",
+          "summary": "E, Q",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "skill",
+                "label": "Skill"
+              },
+              {
+                "type": "burst",
+                "label": "Burst"
+              },
+              {
+                "note": "Nightingale's Song, 20s"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "🌙",
+          "name": "Zibai",
+          "element": "geo",
+          "summary": "E, N4, Q",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "skill",
+                "label": "Skill"
+              },
+              {
+                "note": "Lunar Phase Shift"
+              }
+            ],
+            [
+              {
+                "type": "normal",
+                "label": "Normal ×4"
+              },
+              {
+                "type": "burst",
+                "label": "Burst"
+              }
+            ]
+          ]
+        }
+      ],
+      "tips": [
+        "Zibai's Q fits inside Illuga's **20s**"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "label": "🪨 Navia · Mono Geo",
+  "order": 9,
+  "variants": [
+    {
+      "id": "standard",
+      "label": "Standard",
+      "units": [
+        {
+          "icon": "🪨",
+          "name": "Zhongli",
+          "element": "geo",
+          "summary": "hold E shield",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "skill",
+                "label": "hold Skill"
+              },
+              {
+                "note": "Jade Shield"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "🛞",
+          "name": "Kachina",
+          "element": "geo",
+          "summary": "E, Q",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "skill",
+                "label": "Skill"
+              },
+              {
+                "type": "burst",
+                "label": "Burst"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "💎",
+          "name": "Ningguang",
+          "element": "geo",
+          "summary": "E, Q",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "skill",
+                "label": "Skill"
+              },
+              {
+                "type": "burst",
+                "label": "Burst"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "🔫",
+          "name": "Navia",
+          "element": "geo",
+          "summary": "Q, E, attack",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "burst",
+                "label": "Burst"
+              },
+              {
+                "note": "cannon Shrapnel"
+              }
+            ],
+            [
+              {
+                "type": "skill",
+                "label": "hold Skill"
+              }
+            ],
+            [
+              {
+                "type": "normal",
+                "label": "Normal"
+              },
+              {
+                "type": "charged",
+                "label": "Charged"
+              },
+              {
+                "note": "inside 4s"
+              }
+            ]
+          ]
+        }
+      ],
+      "tips": [
+        "All Geo: Navia's Shrapnel comes from **her Q only**",
+        "Jade Shield shreds enemy RES 20%"
+      ]
+    }
+  ]
+}

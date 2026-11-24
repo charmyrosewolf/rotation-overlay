@@ -1,0 +1,132 @@
+{
+  "label": "🪨 Ningguang · Hydro/Electro",
+  "order": 6,
+  "variants": [
+    {
+      "id": "standard",
+      "label": "Standard",
+      "units": [
+        {
+          "icon": "🐺",
+          "name": "Alyosha",
+          "element": "electro",
+          "summary": "tap E, Q taunt",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "skill",
+                "label": "tap Skill"
+              },
+              {
+                "note": "Hunter's Mark"
+              }
+            ],
+            [
+              {
+                "type": "burst",
+                "label": "Burst"
+              },
+              {
+                "note": "Hunting Field taunts"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "🥷",
+          "name": "Kuki Shinobu",
+          "element": "electro",
+          "summary": "E, Q",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "skill",
+                "label": "Skill"
+              },
+              {
+                "type": "burst",
+                "label": "Burst"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "🌧️",
+          "name": "Xingqiu",
+          "element": "hydro",
+          "summary": "Q, E",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "burst",
+                "label": "Burst"
+              },
+              {
+                "type": "skill",
+                "label": "Skill"
+              },
+              {
+                "note": "E hits harder in Raincutter"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "💎",
+          "name": "Ningguang",
+          "element": "geo",
+          "summary": "E, Q, N N CA",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "skill",
+                "label": "Skill"
+              },
+              {
+                "type": "burst",
+                "label": "Burst"
+              },
+              {
+                "note": "Jade Screen adds gems"
+              }
+            ],
+            [
+              {
+                "type": "normal",
+                "label": "Normal ×2"
+              },
+              {
+                "type": "charged",
+                "label": "Charged"
+              },
+              {
+                "note": "free with Star Jades"
+              }
+            ]
+          ]
+        }
+      ],
+      "tips": [
+        "Alyosha **E before Q**",
+        "Walk through **Jade Screen**: +12% Geo, 10s",
+        "Kuki's ring follows whoever is on field"
+      ]
+    }
+  ]
+}

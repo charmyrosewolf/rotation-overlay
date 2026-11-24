@@ -1,0 +1,133 @@
+{
+  "label": "🪨 Navia · Electro/Geo",
+  "order": 3,
+  "variants": [
+    {
+      "id": "standard",
+      "label": "Standard",
+      "units": [
+        {
+          "icon": "🦇",
+          "name": "Fischl",
+          "element": "electro",
+          "summary": "E Oz",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "skill",
+                "label": "Skill"
+              },
+              {
+                "note": "Oz stays out"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "🪨",
+          "name": "Zhongli",
+          "element": "geo",
+          "summary": "hold E shield",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "skill",
+                "label": "hold Skill"
+              },
+              {
+                "note": "Jade Shield"
+              }
+            ],
+            [
+              {
+                "type": "burst",
+                "label": "Burst"
+              },
+              {
+                "note": "only to Petrify a pack"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "🛞",
+          "name": "Kachina",
+          "element": "geo",
+          "summary": "E, Q",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "skill",
+                "label": "Skill"
+              },
+              {
+                "type": "burst",
+                "label": "Burst"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "🔫",
+          "name": "Navia",
+          "element": "geo",
+          "summary": "Q, then E with shrapnel, then attack",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "burst",
+                "label": "Burst"
+              },
+              {
+                "note": "cannon makes Crystal Shrapnel"
+              }
+            ],
+            [
+              {
+                "type": "skill",
+                "label": "hold Skill"
+              },
+              {
+                "note": "pick up shards first"
+              }
+            ],
+            [
+              {
+                "type": "normal",
+                "label": "Normal"
+              },
+              {
+                "type": "charged",
+                "label": "Charged"
+              },
+              {
+                "note": "inside the 4s Crystalshot window"
+              }
+            ]
+          ]
+        }
+      ],
+      "tips": [
+        "Fischl on Geo makes **Crystallize shards** for Navia",
+        "**4+ Shrapnel** stacks before her E",
+        "Navia A4: Fischl is her only non-Geo mate"
+      ]
+    }
+  ]
+}

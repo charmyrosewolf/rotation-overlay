@@ -1,0 +1,167 @@
+{
+  "label": "⚡ Varesa · Electro/Geo",
+  "order": 4,
+  "variants": [
+    {
+      "id": "standard",
+      "label": "Standard",
+      "units": [
+        {
+          "icon": "🏋️",
+          "name": "Iansan",
+          "element": "electro",
+          "summary": "Q, E, N",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "burst",
+                "label": "Burst"
+              },
+              {
+                "note": "the Scale buffs whoever is on field"
+              }
+            ],
+            [
+              {
+                "type": "skill",
+                "label": "Skill"
+              },
+              {
+                "type": "normal",
+                "label": "Normal"
+              },
+              {
+                "note": "Swift Stormflight"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "🎧",
+          "name": "Xilonen",
+          "element": "geo",
+          "summary": "E, N2, Q",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "skill",
+                "label": "Skill"
+              },
+              {
+                "type": "normal",
+                "label": "Normal ×2"
+              }
+            ],
+            [
+              {
+                "type": "burst",
+                "label": "Burst"
+              },
+              {
+                "note": "heals with 2 Electro mates"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "🌙",
+          "name": "Zibai",
+          "element": "geo",
+          "summary": "E, N4, Q",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "skill",
+                "label": "Skill"
+              },
+              {
+                "note": "Lunar Phase Shift"
+              }
+            ],
+            [
+              {
+                "type": "normal",
+                "label": "Normal ×4"
+              },
+              {
+                "type": "burst",
+                "label": "Burst"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "🥊",
+          "name": "Varesa",
+          "element": "electro",
+          "summary": "tap E, Q, plunge, Q again, tap E",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "skill",
+                "label": "tap Skill"
+              },
+              {
+                "note": "Rainbow Crash, 5s"
+              }
+            ],
+            [
+              {
+                "type": "burst",
+                "label": "Burst"
+              },
+              {
+                "note": "Fiery Passion"
+              }
+            ],
+            [
+              {
+                "type": "plunge",
+                "label": "Plunge"
+              },
+              {
+                "note": "ground hit"
+              }
+            ],
+            [
+              {
+                "type": "burst",
+                "label": "Burst"
+              },
+              {
+                "note": "Volcano Kablam in Apex Drive"
+              }
+            ],
+            [
+              {
+                "type": "skill",
+                "label": "tap Skill"
+              }
+            ]
+          ]
+        }
+      ],
+      "tips": [
+        "Varesa: **spend the Apex Q** before the next E",
+        "Fiery Passion lasts **15s** at most",
+        "No Hydro: Zibai gets **no Lunar-Crystallize** here"
+      ]
+    }
+  ]
+}
