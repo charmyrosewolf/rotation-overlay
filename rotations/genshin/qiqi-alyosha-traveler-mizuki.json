@@ -1,0 +1,119 @@
+{
+  "label": "🌀 Mizuki · Stellar (Qiqi)",
+  "order": 13,
+  "variants": [
+    {
+      "id": "standard",
+      "label": "Standard",
+      "units": [
+        {
+          "icon": "🧊",
+          "name": "Qiqi",
+          "element": "cryo",
+          "summary": "E",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "skill",
+                "label": "Skill"
+              },
+              {
+                "note": "Herald of Frost"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "🐺",
+          "name": "Alyosha",
+          "element": "electro",
+          "summary": "tap E, Q",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "skill",
+                "label": "tap Skill"
+              },
+              {
+                "note": "Hunter's Mark"
+              }
+            ],
+            [
+              {
+                "type": "burst",
+                "label": "Burst"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "⭐",
+          "name": "Traveler",
+          "element": "cryo",
+          "summary": "E, Q",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "skill",
+                "label": "Skill"
+              },
+              {
+                "type": "burst",
+                "label": "Burst"
+              },
+              {
+                "note": "enables both Stellar reactions"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "🌸",
+          "name": "Mizuki",
+          "element": "anemo",
+          "summary": "E, stay on field",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "skill",
+                "label": "Skill"
+              },
+              {
+                "note": "swirl the Cryo"
+              }
+            ],
+            [
+              {
+                "type": "normal",
+                "label": "Normal"
+              },
+              {
+                "note": "stay on Mizuki"
+              }
+            ]
+          ]
+        }
+      ],
+      "tips": [
+        "Stay on **Mizuki**: Alyosha's +20% goes to the on-field character",
+        "Qiqi's +50% lasts only while **Herald** is out"
+      ]
+    }
+  ]
+}

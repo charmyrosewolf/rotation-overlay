@@ -1,0 +1,174 @@
+{
+  "label": "⚡ Mitya · Stellar (Sucrose)",
+  "order": 12,
+  "variants": [
+    {
+      "id": "standard",
+      "label": "Standard",
+      "units": [
+        {
+          "icon": "❄️",
+          "name": "Odette",
+          "element": "cryo",
+          "summary": "E, Q",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "skill",
+                "label": "Skill"
+              },
+              {
+                "type": "burst",
+                "label": "Burst"
+              },
+              {
+                "note": "Cryo down first"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "🌪️",
+          "name": "Sucrose",
+          "element": "anemo",
+          "summary": "E, Q",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "skill",
+                "label": "Skill"
+              },
+              {
+                "type": "burst",
+                "label": "Burst"
+              },
+              {
+                "note": "swirls into Stellar Swirl"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "🛡️",
+          "name": "Valeriy",
+          "element": "electro",
+          "summary": "E, Q, then CA after Mitya",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "skill",
+                "label": "Skill"
+              },
+              {
+                "type": "burst",
+                "label": "Burst"
+              },
+              {
+                "note": "shells fall"
+              }
+            ]
+          ],
+          "note": "back to Mitya, then here again for the CA"
+        },
+        {
+          "icon": "🧪",
+          "name": "Mitya",
+          "element": "electro",
+          "summary": "Q, Electro hits under the shells",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "burst",
+                "label": "Burst"
+              },
+              {
+                "note": "3 Gradient Beacons"
+              }
+            ],
+            [
+              {
+                "type": "normal",
+                "label": "Normal"
+              },
+              {
+                "note": "+5 Momentum per Electro hit"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "🛡️",
+          "name": "Valeriy · Bombardment",
+          "element": "electro",
+          "summary": "CA at 40+ Momentum",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "charged",
+                "label": "Charged"
+              },
+              {
+                "note": "Point-Blank Bombardment"
+              }
+            ]
+          ]
+        },
+        {
+          "icon": "🧪",
+          "name": "Mitya · Detonate",
+          "element": "electro",
+          "summary": "hold E, CAs till the Beacons run out",
+          "steps": [
+            [
+              {
+                "type": "swap",
+                "label": "Swap"
+              },
+              {
+                "type": "skill",
+                "label": "hold Skill"
+              },
+              {
+                "note": "Overloaded"
+              }
+            ],
+            [
+              {
+                "type": "charged",
+                "label": "Charged"
+              },
+              {
+                "note": "Gradient Detonation, no stamina"
+              }
+            ]
+          ]
+        }
+      ],
+      "tips": [
+        "**Odette** enables both Stellar reactions",
+        "Sucrose E right after Odette, **not mid-chain**: swirls strip the Cryo",
+        "Stay on Mitya under the **Directive**"
+      ]
+    }
+  ]
+}
